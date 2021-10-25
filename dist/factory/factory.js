@@ -16,3 +16,4 @@ const createElement = async (name, props, ...children) => {
     return parser(name, props, ...children);
 };
 exports.createElement = createElement;
+//# sourceMappingURL=factory.js.map

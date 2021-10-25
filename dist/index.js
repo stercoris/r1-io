@@ -35,3 +35,4 @@ const R1IO = {
     Fragment: ({ children }) => Factory.createElement("functional", null, ...children),
 };
 exports.default = R1IO;
+//# sourceMappingURL=index.js.map

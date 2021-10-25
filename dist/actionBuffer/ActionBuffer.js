@@ -25,3 +25,4 @@ const createActionBuffer = (...actions) => {
     return { findAndCall };
 };
 exports.createActionBuffer = createActionBuffer;
+//# sourceMappingURL=ActionBuffer.js.map

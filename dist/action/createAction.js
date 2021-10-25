@@ -28,3 +28,4 @@ const createAction = (name, action) => {
     return setup;
 };
 exports.createAction = createAction;
+//# sourceMappingURL=createAction.js.map

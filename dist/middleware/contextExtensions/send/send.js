@@ -10,3 +10,4 @@ const applyCustomSend = (build, { builderContext, context }) => {
     };
 };
 exports.applyCustomSend = applyCustomSend;
+//# sourceMappingURL=send.js.map

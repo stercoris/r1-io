@@ -1,0 +1,1 @@
+{"version":3,"file":"parser.d.ts","sourceRoot":"","sources":["../../../../src/factory/elements/button/parser.ts"],"names":[],"mappings":";AAAA,OAAO,EAAE,MAAM,EAAE,MAAM,iBAAiB,CAAC;AAGzC,oBAAY,MAAM,GAAG,GAAG,CAAC,WAAW,CAAC;AAErC,oBAAY,YAAY,GAAG,CACzB,IAAI,EAAE,QAAQ,EACd,KAAK,EAAE,MAAM,GAAG,IAAI,EACpB,GAAG,QAAQ,EAAE,MAAM,EAAE,KAClB,MAAM,CAAC;AAEZ,eAAO,MAAM,WAAW,EAAE,YAUzB,CAAC"}

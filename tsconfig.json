@@ -8,6 +8,9 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "removeComments": true,
     "baseUrl": "./src",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "rootDir": "./src",
     "moduleResolution": "node",
     "outDir": "./dist"

@@ -6,3 +6,4 @@ const parseFunctional = (func, props, ...children) => {
     return { type: "functional", content };
 };
 exports.parseFunctional = parseFunctional;
+//# sourceMappingURL=parser.js.map

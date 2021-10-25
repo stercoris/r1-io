@@ -11,3 +11,4 @@ const nodeToVkIoKeyboard = (node) => {
     return vk_io_1.Keyboard.keyboard(rows.map(getRow));
 };
 exports.nodeToVkIoKeyboard = nodeToVkIoKeyboard;
+//# sourceMappingURL=nodeToVkIoKeyboard.js.map

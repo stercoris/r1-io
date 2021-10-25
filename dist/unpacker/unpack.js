@@ -5,3 +5,4 @@ const deleteFunctionalComponents_1 = require("unpacker/deleteFunctionalComponent
 const getDeepResolved_1 = require("unpacker/getDeepResolved");
 const unpackContent = async (menu) => (0, deleteFunctionalComponents_1.deleteFunctionalComponents)(await (0, getDeepResolved_1.deepResolveContent)(menu));
 exports.unpackContent = unpackContent;
+//# sourceMappingURL=unpack.js.map

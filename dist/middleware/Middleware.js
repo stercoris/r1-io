@@ -3,9 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createMiddleware = void 0;
 const createAction_1 = require("action/createAction");
 const send_1 = require("middleware/contextExtensions/send/send");
-const R1IO_1 = require("R1IO");
+const ActionBuffer_1 = require("actionBuffer/ActionBuffer");
 const createMiddleware = (getCurrentMenu, contextWorker) => {
-    const actionsBuffer = (0, R1IO_1.createActionBuffer)(...createAction_1.actions);
+    const actionsBuffer = (0, ActionBuffer_1.createActionBuffer)(...createAction_1.actions);
     const middleware = async (context, next) => {
         const builderContext = await contextWorker(context, next);
         const contextBundle = {
@@ -28,3 +28,4 @@ const createMiddleware = (getCurrentMenu, contextWorker) => {
     return middleware;
 };
 exports.createMiddleware = createMiddleware;
+//# sourceMappingURL=Middleware.js.map

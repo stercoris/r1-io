@@ -3,7 +3,7 @@ import { IBuilder } from "builder/IBuilder";
 import { applyCustomSend } from "middleware/contextExtensions/send/send";
 import { ContextBundle } from "middleware/IContextBundle";
 import { IMiddleware } from "middleware/IMiddleware";
-import { createActionBuffer } from "R1IO";
+import { createActionBuffer } from "actionBuffer/ActionBuffer";
 
 export const createMiddleware = <
   JSXComponentProps,

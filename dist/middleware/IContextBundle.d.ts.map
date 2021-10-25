@@ -1,0 +1,1 @@
+{"version":3,"file":"IContextBundle.d.ts","sourceRoot":"","sources":["../../src/middleware/IContextBundle.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,OAAO,CAAC;AAEvC,MAAM,WAAW,aAAa,CAAC,CAAC,SAAS,EAAE;IACzC,OAAO,EAAE,cAAc,CAAC;IACxB,cAAc,EAAE,CAAC,CAAC;CACnB"}

@@ -25,3 +25,4 @@ const deleteFunctionalComponents = (main) => {
     return main;
 };
 exports.deleteFunctionalComponents = deleteFunctionalComponents;
+//# sourceMappingURL=deleteFunctionalComponents.js.map

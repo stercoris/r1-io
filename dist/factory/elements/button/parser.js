@@ -11,3 +11,4 @@ const parseButton = (_, props, children) => {
     return { type: "button", content: button };
 };
 exports.parseButton = parseButton;
+//# sourceMappingURL=parser.js.map
