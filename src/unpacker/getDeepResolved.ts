@@ -1,6 +1,6 @@
 // this is some unsafe shit, but no other way :sadface:
 
-import { R1Node } from "factory/factory";
+import { R1Node } from "@Factory/factory";
 
 //@ts-ignore
 require("promise-resolve-deep")(Promise);

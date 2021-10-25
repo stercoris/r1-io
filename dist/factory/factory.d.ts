@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export declare type ComponentType = "row" | "button" | "functional" | "menu";
 export declare type R1Node = {
     type: ComponentType;

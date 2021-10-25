@@ -1,9 +1,9 @@
-import { actions } from "action/createAction";
-import { IBuilder } from "builder/IBuilder";
-import { applyCustomSend } from "middleware/contextExtensions/send/send";
-import { ContextBundle } from "middleware/IContextBundle";
-import { IMiddleware } from "middleware/IMiddleware";
-import { createActionBuffer } from "actionBuffer/ActionBuffer";
+import { actions } from "@Action/createAction";
+import { IBuilder } from "@Builder/IBuilder";
+import { applyCustomSend } from "@Middleware/contextExtensions/send/send";
+import { ContextBundle } from "@Middleware/IContextBundle";
+import { IMiddleware } from "@Middleware/IMiddleware";
+import { createActionBuffer } from "@ActionBuffer/ActionBuffer";
 
 export const createMiddleware = <
   JSXComponentProps,

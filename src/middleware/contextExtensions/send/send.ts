@@ -1,5 +1,5 @@
-import { BuildKeyboard } from "builder/IBuilder";
-import { ContextBundle } from "middleware/IContextBundle";
+import { BuildKeyboard } from "@Builder/IBuilder";
+import { ContextBundle } from "@Middleware/IContextBundle";
 import { IMessageContextSendOptions } from "vk-io";
 
 export const applyCustomSend = <C extends {}>(

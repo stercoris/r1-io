@@ -1,0 +1,13 @@
+diff --git a/node_modules/promise-resolve-deep/dist/index.js b/node_modules/promise-resolve-deep/dist/index.js
+index 4904ce0..e6ee53b 100644
+--- a/node_modules/promise-resolve-deep/dist/index.js
++++ b/node_modules/promise-resolve-deep/dist/index.js
+@@ -20,7 +20,7 @@ module.exports = function setupResolveDeep(Promise) {
+   };
+ 
+   function resolveNestedPromises(obj, options) {
+-    var maxDepth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 6;
++    var maxDepth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : -1;
+ 
+     if (maxDepth === 0) {
+       return Promise.resolve(obj);

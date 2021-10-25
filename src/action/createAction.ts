@@ -5,7 +5,7 @@ import {
   ParameterizedPayloadCreateFunc,
   SimpleAction,
   SimpleActionPayload,
-} from "action/iAction";
+} from "@Action/iAction";
 
 export const actions: IAction<any, any>[] = [];
 

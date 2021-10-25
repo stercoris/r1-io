@@ -20,13 +20,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createParametarizedAction = exports.createAction = exports.createActionBuffer = exports.createBuilder = exports.createMiddleware = void 0;
-var Middleware_1 = require("middleware/Middleware");
+var Middleware_1 = require("./middleware/Middleware");
 Object.defineProperty(exports, "createMiddleware", { enumerable: true, get: function () { return Middleware_1.createMiddleware; } });
-var Builder_1 = require("builder/Builder");
+var Builder_1 = require("./builder/Builder");
 Object.defineProperty(exports, "createBuilder", { enumerable: true, get: function () { return Builder_1.createBuilder; } });
-var ActionBuffer_1 = require("actionBuffer/ActionBuffer");
+var ActionBuffer_1 = require("./actionBuffer/ActionBuffer");
 Object.defineProperty(exports, "createActionBuffer", { enumerable: true, get: function () { return ActionBuffer_1.createActionBuffer; } });
-var createAction_1 = require("action/createAction");
+var createAction_1 = require("./action/createAction");
 Object.defineProperty(exports, "createAction", { enumerable: true, get: function () { return createAction_1.createAction; } });
 Object.defineProperty(exports, "createParametarizedAction", { enumerable: true, get: function () { return createAction_1.createParametarizedAction; } });
 const Factory = __importStar(require("./factory/factory"));

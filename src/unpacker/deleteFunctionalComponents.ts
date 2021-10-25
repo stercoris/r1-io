@@ -1,4 +1,4 @@
-import { R1Node } from "factory/factory";
+import { R1Node } from "@Factory/factory";
 
 const getFunctionalContent = (functionalNode: R1Node): R1Node[] => {
   if (functionalNode.content instanceof Array) {

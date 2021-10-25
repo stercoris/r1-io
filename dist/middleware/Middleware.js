@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createMiddleware = void 0;
-const createAction_1 = require("action/createAction");
-const send_1 = require("middleware/contextExtensions/send/send");
-const ActionBuffer_1 = require("actionBuffer/ActionBuffer");
+const createAction_1 = require("../action/createAction");
+const send_1 = require("./contextExtensions/send/send");
+const ActionBuffer_1 = require("../actionBuffer/ActionBuffer");
 const createMiddleware = (getCurrentMenu, contextWorker) => {
     const actionsBuffer = (0, ActionBuffer_1.createActionBuffer)(...createAction_1.actions);
     const middleware = async (context, next) => {

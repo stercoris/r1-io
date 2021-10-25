@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { KeyboardBuilder } from "vk-io";
 export declare type BuildKeyboard<C> = (context: C) => Promise<KeyboardBuilder>;
 export declare type MiddlewareMenuConfig<C> = {

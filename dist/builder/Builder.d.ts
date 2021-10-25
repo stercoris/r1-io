@@ -1,5 +1,4 @@
-/// <reference types="react" />
-import { IBuilder } from "builder/IBuilder";
+import { IBuilder } from "./IBuilder";
 declare type MenuConfig<C> = {
     build: React.FC<C>;
     onFalldown?: JSX.ActionPayload;

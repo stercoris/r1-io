@@ -1,4 +1,4 @@
-import { R1Node } from "factory/factory";
+import { R1Node } from "@Factory/factory";
 
 export type FunctionalParser = (
   func: Function | string,

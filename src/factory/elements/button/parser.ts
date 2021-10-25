@@ -1,4 +1,4 @@
-import { R1Node } from "factory/factory";
+import { R1Node } from "@Factory/factory";
 import { ButtonColor } from "vk-io";
 
 export type Button = JSX.ButtonProps;

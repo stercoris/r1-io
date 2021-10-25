@@ -1,4 +1,4 @@
-import { ContextBundle } from "middleware/IContextBundle";
+import { ContextBundle } from "@Middleware/IContextBundle";
 
 type ActionResponse = "ActionNotFound" | "ActionExecuted" | "PayloadNotFound";
 

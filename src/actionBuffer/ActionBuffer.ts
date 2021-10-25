@@ -1,5 +1,5 @@
-import { IAction, ParameterizedAction, SimpleAction } from "action/iAction";
-import { FindAndCall, IActionBuffer } from "actionBuffer/IActionBuffer";
+import { IAction, ParameterizedAction, SimpleAction } from "@Action/iAction";
+import { FindAndCall, IActionBuffer } from "@ActionBuffer/IActionBuffer";
 
 export const createActionBuffer = <InternalContext>(
   ...actions: IAction<InternalContext, any>[]

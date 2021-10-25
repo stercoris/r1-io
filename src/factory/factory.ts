@@ -1,5 +1,5 @@
-import { parseButton } from "./elements/button/parser";
-import { parseFunctional } from "./elements/functional/parser";
+import { parseButton } from "@Factory/elements/button/parser";
+import { parseFunctional } from "@Factory/elements/functional/parser";
 
 export type ComponentType = "row" | "button" | "functional" | "menu";
 

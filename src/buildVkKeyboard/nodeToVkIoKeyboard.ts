@@ -1,4 +1,4 @@
-import { R1Node } from "factory/factory";
+import { R1Node } from "@Factory/factory";
 import { IKeyboardProxyButton, Keyboard, KeyboardBuilder } from "vk-io";
 
 const getRow = (node: R1Node): IKeyboardProxyButton[] =>

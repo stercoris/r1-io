@@ -1,1 +1,1 @@
-{"version":3,"file":"deleteFunctionalComponents.d.ts","sourceRoot":"","sources":["../../src/unpacker/deleteFunctionalComponents.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,EAAE,MAAM,iBAAiB,CAAC;AAwBzC,eAAO,MAAM,0BAA0B,SAAU,MAAM,KAAG,MAOzD,CAAC"}
+{"version":3,"file":"deleteFunctionalComponents.d.ts","sourceRoot":"","sources":["../../src/unpacker/deleteFunctionalComponents.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,EAAE,MAAM,kBAAkB,CAAC;AAwB1C,eAAO,MAAM,0BAA0B,SAAU,MAAM,KAAG,MAOzD,CAAC"}
