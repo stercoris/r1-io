@@ -9,6 +9,10 @@
     "test": "yarn test",
     "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist"
   },
+  "files": [
+    "dist",
+    "types"
+  ],
   "author": "Dmitriy Rodin",
   "license": "GPL-3.0-or-later",
   "devDependencies": {

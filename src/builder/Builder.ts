@@ -6,9 +6,10 @@ import {
 import { nodeToVkIoKeyboard } from "@BuildVkKeyboard/nodeToVkIoKeyboard";
 import { R1Node } from "@Factory/factory";
 import { unpackContent } from "@Unpacker/unpack";
+import R1IO from "@Root";
 
 type MenuConfig<C> = {
-  build: React.FC<C>;
+  build: R1IO.FC<C>;
   onFalldown?: JSX.ActionPayload;
 };
 

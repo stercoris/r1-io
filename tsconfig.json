@@ -23,7 +23,8 @@
       "@Builder/*": ["src/builder/*"],
       "@ActionBuffer/*": ["src/actionBuffer/*"],
       "@Action/*": ["src/action/*"],
-      "@Types/*": ["src/types/*"]
+      "@Types/*": ["src/types/*"],
+      "@Root": ["src/index"]
     }
   },
   "include": ["src"]

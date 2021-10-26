@@ -1,6 +1,7 @@
 import { IBuilder } from "./IBuilder";
+import R1IO from "../index";
 declare type MenuConfig<C> = {
-    build: React.FC<C>;
+    build: R1IO.FC<C>;
     onFalldown?: JSX.ActionPayload;
 };
 declare type EnumToMenu<C, E extends string> = Record<E, MenuConfig<C>>;
