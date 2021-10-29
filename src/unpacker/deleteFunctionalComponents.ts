@@ -8,7 +8,7 @@ const getFunctionalContent = (functionalNode: R1Node): R1Node[] => {
 };
 
 const getContentWithoutFunctional = (content: R1Node[]): R1Node[] => {
-  const withoutFuntional = content.reduce((prev, current) => {
+  const withoutFuntional = content.flat().reduce((prev, current) => {
     const currentWithoutFucntional =
       current.type === "functional" ? getFunctionalContent(current) : [current];
 
@@ -16,6 +16,7 @@ const getContentWithoutFunctional = (content: R1Node[]): R1Node[] => {
   }, [] as R1Node[]);
 
   if (withoutFuntional.find((n) => n.type === "functional")) {
+    console.log(withoutFuntional);
     return getContentWithoutFunctional(withoutFuntional);
   }
 
@@ -24,6 +25,8 @@ const getContentWithoutFunctional = (content: R1Node[]): R1Node[] => {
 
 export const deleteFunctionalComponents = (main: R1Node): R1Node => {
   if (main.type === "button") return main;
+
+  console.log(main.content);
   const contentWithoutFC = getContentWithoutFunctional(
     main.content as R1Node[]
   );
