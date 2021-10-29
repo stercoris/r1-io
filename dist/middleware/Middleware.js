@@ -16,10 +16,11 @@ const createMiddleware = (getCurrentMenu, contextWorker) => {
         (0, send_1.applyCustomSend)(getCurrentMenuAndBuildKeyboard, contextBundle);
         console.log(context.messagePayload);
         const actionStatus = await actionsBuffer.findAndCall(context.messagePayload, contextBundle);
-        const { falldownAction } = getCurrentMenu(builderContext);
+        const { fallbackAction } = getCurrentMenu(builderContext);
+        console.log(getCurrentMenu(builderContext));
         if (actionStatus === "PayloadNotFound") {
-            if (falldownAction)
-                await actionsBuffer.findAndCall(falldownAction, contextBundle);
+            if (fallbackAction)
+                await actionsBuffer.findAndCall(fallbackAction, contextBundle);
             else
                 await context.send("Fallback couse no payload was found");
         }

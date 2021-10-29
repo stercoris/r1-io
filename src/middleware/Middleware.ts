@@ -31,11 +31,11 @@ export const createMiddleware = <
       contextBundle
     );
 
-    const { falldownAction } = getCurrentMenu(builderContext);
+    const { fallbackAction } = getCurrentMenu(builderContext);
 
     if (actionStatus === "PayloadNotFound") {
-      if (falldownAction)
-        await actionsBuffer.findAndCall(falldownAction, contextBundle);
+      if (fallbackAction)
+        await actionsBuffer.findAndCall(fallbackAction, contextBundle);
       else await context.send("Fallback couse no payload was found");
     }
 

@@ -10,7 +10,7 @@ import R1IO from "@Root";
 
 type MenuConfig<C> = {
   build: R1IO.FC<C>;
-  onFalldown?: JSX.ActionPayload;
+  fallbackAction?: JSX.ActionPayload;
 };
 
 type EnumToMenu<C, E extends string> = Record<E, MenuConfig<C>>;
