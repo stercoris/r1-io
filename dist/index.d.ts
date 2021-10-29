@@ -74,7 +74,7 @@ declare global {
             button: Omit<ButtonProps, "label"> & ({
                 label: string;
             } | {
-                children: string;
+                children: string[] | string;
             });
             row: {
                 children: Button | Button[];

@@ -100,7 +100,7 @@ declare global {
 
     interface IntrinsicElements {
       button: Omit<ButtonProps, "label"> &
-        ({ label: string } | { children: string });
+        ({ label: string } | { children: string[] | string });
       row: { children: Button | Button[] };
       menu: { children: Row | Row[] };
     }

@@ -11,7 +11,7 @@ export type CreateButton = (
 ) => R1Node;
 
 export const parseButton: CreateButton = (_, props, ...children) => {
-  const labelOrChild = props?.label ?? children;
+  const labelOrChild = props?.label ?? children.join("");
 
   const button: JSX.ButtonPayload = {
     label: getFlatChilren(labelOrChild),
