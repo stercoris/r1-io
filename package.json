@@ -1,6 +1,6 @@
 {
   "name": "r1-io",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Simple jsx based library for creation of vk bots, based on vk-io",
   "main": "dist/index.js",
   "scripts": {
