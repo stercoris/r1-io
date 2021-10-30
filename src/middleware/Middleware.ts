@@ -36,7 +36,6 @@ export const createMiddleware = <
     if (actionStatus === "PayloadNotFound") {
       if (fallbackAction)
         await actionsBuffer.findAndCall(fallbackAction, contextBundle);
-      else await context.send("Fallback couse no payload was found");
     }
 
     return builderContext;

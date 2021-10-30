@@ -3,6 +3,11 @@ export { createBuilder } from "@Builder/Builder";
 export { createActionBuffer } from "@ActionBuffer/ActionBuffer";
 export { createAction, createParametarizedAction } from "@Action/createAction";
 
+export {
+  ParameterizedActionPayload,
+  SimpleActionPayload,
+} from "@Action/iAction";
+
 import * as Factory from "./factory/factory";
 
 declare namespace R1IO {

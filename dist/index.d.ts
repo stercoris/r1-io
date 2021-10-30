@@ -2,6 +2,7 @@ export { createMiddleware } from "./middleware/Middleware";
 export { createBuilder } from "./builder/Builder";
 export { createActionBuffer } from "./actionBuffer/ActionBuffer";
 export { createAction, createParametarizedAction } from "./action/createAction";
+export { ParameterizedActionPayload, SimpleActionPayload, } from "./action/iAction";
 import * as Factory from "./factory/factory";
 declare namespace R1IO {
     type JSXElementConstructor<P> = (props: P) => ReactElement<any, any> | null;
