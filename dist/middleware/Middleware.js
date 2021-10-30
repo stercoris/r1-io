@@ -16,7 +16,6 @@ const createMiddleware = (getCurrentMenu, contextWorker) => {
         };
         const getCurrentMenuAndBuildKeyboard = (context) => getCurrentMenu(context).build(context);
         (0, send_1.applyCustomSend)(getCurrentMenuAndBuildKeyboard, contextBundle);
-        console.log(context.messagePayload);
         const actionStatus = await actionsBuffer.findAndCall(context.messagePayload, contextBundle);
         const { fallbackAction } = getCurrentMenu(builderContext);
         if (actionStatus === "PayloadNotFound") {

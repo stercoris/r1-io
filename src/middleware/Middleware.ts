@@ -27,7 +27,6 @@ export const createMiddleware = <
       getCurrentMenu(context).build(context);
 
     applyCustomSend(getCurrentMenuAndBuildKeyboard, contextBundle);
-    console.log(context.messagePayload);
 
     const actionStatus = await actionsBuffer.findAndCall(
       context.messagePayload,
