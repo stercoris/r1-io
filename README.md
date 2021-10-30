@@ -26,7 +26,7 @@ export interface BotContext {
 
 2.  Create actions you will use:
 
-```tsx
+```typescript
 const gotoMenuAction = createParametarizedAction<BotContext, Menus>(
   "goto menu",
   (menu, { send }, { user }) => {
@@ -50,7 +50,7 @@ const setRandomUsername = createAction<BotContext>(
 
 3.  Create menu constructors:
 
-```typescriptreact
+```tsx
 const SettingsMenu: R1IO.FC<BotContext> = async () => (
   <menu>
     <row>
