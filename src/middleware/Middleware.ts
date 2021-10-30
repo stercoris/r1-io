@@ -15,6 +15,9 @@ export const createMiddleware = <
   const actionsBuffer = createActionBuffer(...actions);
   const middleware: IMiddleware<OutputContext> = async (context, next) => {
     const builderContext = await contextWorker(context, next);
+
+    if (!builderContext) return;
+
     const contextBundle: ContextBundle<OutputContext> = {
       context,
       builderContext,

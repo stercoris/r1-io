@@ -8,6 +8,8 @@ const createMiddleware = (getCurrentMenu, contextWorker) => {
     const actionsBuffer = (0, ActionBuffer_1.createActionBuffer)(...createAction_1.actions);
     const middleware = async (context, next) => {
         const builderContext = await contextWorker(context, next);
+        if (!builderContext)
+            return;
         const contextBundle = {
             context,
             builderContext,

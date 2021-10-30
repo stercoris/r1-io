@@ -1,4 +1,4 @@
 import { NextMiddleware } from "middleware-io";
 import { MessageContext } from "vk-io";
-export declare type IMiddleware<OutputContext> = (context: MessageContext, next: NextMiddleware) => Promise<OutputContext>;
+export declare type IMiddleware<OutputContext> = (context: MessageContext, next: NextMiddleware) => Promise<OutputContext | void>;
 //# sourceMappingURL=IMiddleware.d.ts.map

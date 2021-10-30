@@ -4,4 +4,4 @@ import { MessageContext } from "vk-io";
 export type IMiddleware<OutputContext> = (
   context: MessageContext,
   next: NextMiddleware
-) => Promise<OutputContext>;
+) => Promise<OutputContext | void>;
