@@ -6,7 +6,9 @@
   "scripts": {
     "postinstall": "patch-package",
     "test": "yarn test",
-    "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist"
+    "copyPatchestToDist": "cp -r -u patches dist",
+    "transpile": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
+    "build": "yarn transpile && yarn copyPatchestToDist"
   },
   "author": "Dmitriy Rodin",
   "license": "GPL-3.0-or-later",
