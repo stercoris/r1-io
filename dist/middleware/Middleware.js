@@ -17,7 +17,6 @@ const createMiddleware = (getCurrentMenu, contextWorker) => {
         console.log(context.messagePayload);
         const actionStatus = await actionsBuffer.findAndCall(context.messagePayload, contextBundle);
         const { fallbackAction } = getCurrentMenu(builderContext);
-        console.log(getCurrentMenu(builderContext));
         if (actionStatus === "PayloadNotFound") {
             if (fallbackAction)
                 await actionsBuffer.findAndCall(fallbackAction, contextBundle);

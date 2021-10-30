@@ -12,7 +12,7 @@ declare namespace R1IO {
     }
     type FC<P = {}> = FunctionComponent<P>;
     type ReactText = string | number;
-    type ReactChild = ReactElement | ReactText;
+    type ReactChild = ReactElement | ReactElement[] | ReactText;
     interface ReactPortal extends ReactElement {
         key: Key | null;
         children: ReactNode;
@@ -68,8 +68,8 @@ declare global {
         }
         type RowPayload = ButtonPayload[];
         type MenuPayload = RowPayload[];
-        type Button = Promise<R1IO.ReactElement<ButtonPayload>>;
-        type Row = Promise<R1IO.ReactElement<Button>>;
+        type Button = Promise<R1IO.ReactElement<ButtonPayload>> | Promise<R1IO.ReactElement<ButtonPayload>>[];
+        type Row = Promise<R1IO.ReactElement<Button>> | Promise<R1IO.ReactElement<Button>>[];
         interface IntrinsicElements {
             button: Omit<ButtonProps, "label"> & ({
                 label: string;
