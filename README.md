@@ -26,7 +26,7 @@ export interface BotContext {
 
 2.  Create actions you will use:
 
-```typescript
+```tsx
 const gotoMenuAction = createParametarizedAction<BotContext, Menus>(
   "goto menu",
   (menu, { send }, { user }) => {
