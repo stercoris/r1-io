@@ -121,13 +121,13 @@ export const RootMiddleware = createMiddleware(router, async () => ({ user }));
 1.  Add package to your project
 
 ```bash
-	yarn add r1-io
+yarn add r1-io
 ```
 
-    	or
+or
 
 ```bash
-	npm i r1-io
+npm i r1-io
 ```
 
 <hr>
@@ -135,13 +135,13 @@ export const RootMiddleware = createMiddleware(router, async () => ({ user }));
 2.  Add vk-io to your project (only 4.4.0 tested)
 
 ```bash
-	yarn add vk-io@4.4.0
+yarn add vk-io@4.4.0
 ```
 
-    	or
+or
 
 ```bash
-	npm i r1-io@4.4.0
+npm i r1-io@4.4.0
 ```
 
 <hr>
