@@ -18,8 +18,9 @@
     "tscpaths": "^0.0.9"
   },
   "dependencies": {
-    "patch-package": "^6.4.7",
     "middleware-io": "^2.8.0",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
     "promise-resolve-deep": "^1.1.1",
     "typescript": "^4.4.4",
     "vk-io": "^4.4.0"
