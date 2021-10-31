@@ -2,7 +2,7 @@
 
 import { R1Node } from "@Factory/factory";
 //@ts-ignore
-import { promisePropsRecursive } from "promise-props-recursive";
+import promisePropsRecursive from "promise-props-recursive";
 
 export const deepResolveContent = async (
   objectWithPromiseChain: R1Node
