@@ -8,4 +8,4 @@ export const deepResolveContent = async (
   objectWithPromiseChain: R1Node
 ): Promise<R1Node> =>
   //@ts-ignore
-  promisePropsRecursive(objectWithPromiseChain)[0];
+  await promisePropsRecursive(objectWithPromiseChain)[0];
