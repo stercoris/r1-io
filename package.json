@@ -1,14 +1,12 @@
 {
   "name": "r1-io",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Simple jsx based library for creation of vk bots, based on vk-io",
   "main": "dist/index.js",
   "scripts": {
-    "postinstall": "patch-package",
     "test": "yarn test",
-    "copyPatchestToDist": "cp -r -u patches dist",
     "transpile": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
-    "build": "yarn transpile && yarn copyPatchestToDist"
+    "build": "yarn transpile"
   },
   "author": "Dmitriy Rodin",
   "license": "GPL-3.0-or-later",
@@ -19,10 +17,6 @@
   },
   "dependencies": {
     "middleware-io": "^2.8.0",
-    "patch-package": "^6.4.7",
-    "postinstall-postinstall": "^2.1.0",
-    "promise-props-recursive": "^1.0.0",
-    "promise-resolve-deep": "^1.1.1",
     "typescript": "^4.4.4",
     "vk-io": "^4.4.0"
   }

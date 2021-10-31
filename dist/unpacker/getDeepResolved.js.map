@@ -1,1 +1,1 @@
-{"version":3,"file":"getDeepResolved.js","sourceRoot":"","sources":["../../src/unpacker/getDeepResolved.ts"],"names":[],"mappings":";;;;;;AAIA,sFAA4D;AAErD,MAAM,kBAAkB,GAAG,KAAK,EACrC,sBAA8B,EACb,EAAE,CAEnB,MAAM,IAAA,iCAAqB,EAAC,sBAAsB,CAAC,CAAC,CAAC,CAAC,CAAC;AAJ5C,QAAA,kBAAkB,sBAI0B"}
+{"version":3,"file":"getDeepResolved.js","sourceRoot":"","sources":["../../src/unpacker/getDeepResolved.ts"],"names":[],"mappings":";;;AAKA,iEAA+D;AAExD,MAAM,kBAAkB,GAAG,CAChC,sBAA8B,EACb,EAAE,CACnB,IAAA,4CAAqB,EAAC,sBAAsB,EAAE,SAAS,EAAE,CAAC,CAAC,CAAC,CAAC;AAHlD,QAAA,kBAAkB,sBAGgC"}

@@ -1,1 +1,1 @@
-{"version":3,"file":"getDeepResolved.d.ts","sourceRoot":"","sources":["../../src/unpacker/getDeepResolved.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,MAAM,EAAE,MAAM,kBAAkB,CAAC;AAI1C,eAAO,MAAM,kBAAkB,2BACL,MAAM,KAC7B,QAAQ,MAAM,CAEuC,CAAC"}
+{"version":3,"file":"getDeepResolved.d.ts","sourceRoot":"","sources":["../../src/unpacker/getDeepResolved.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,MAAM,EAAE,MAAM,kBAAkB,CAAC;AAK1C,eAAO,MAAM,kBAAkB,2BACL,MAAM,KAC7B,QAAQ,MAAM,CAC6C,CAAC"}
