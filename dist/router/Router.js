@@ -1,26 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createRouter = void 0;
-const nodeToVkIoKeyboard_1 = require("../buildVkKeyboard/nodeToVkIoKeyboard");
-const unpack_1 = require("../unpacker/unpack");
-const buildKeyboardAndConvertToKeyboardBuilder = (buildNode) => async (...args) => {
-    const unresolvedNode = buildNode(...args);
-    return (0, nodeToVkIoKeyboard_1.nodeToVkIoKeyboard)(await (0, unpack_1.unpackContent)(unresolvedNode));
-};
+const addBuildersToRouterMap_1 = require("./helpers/configurations/addBuildersToRouterMap");
+const getCurrentMenu_1 = require("./helpers/api/getCurrentMenu");
 const createRouter = (menuMap, getMenuFromContext) => {
-    const getCurrentMenu = (context) => {
-        const userCurrentMenu = getMenuFromContext(context);
-        for (const [name, menu] of Object.entries(menuMap)) {
-            if (userCurrentMenu === name) {
-                const menuConf = {
-                    ...menu,
-                    build: buildKeyboardAndConvertToKeyboardBuilder(menu.build),
-                };
-                return menuConf;
-            }
-        }
-        throw new Error("MENU NOT FOUND");
-    };
+    const menusWithBuilders = (0, addBuildersToRouterMap_1.configureMenuBuilders)(menuMap);
+    const getCurrentMenu = (0, getCurrentMenu_1.getCurrentMenuFabric)({
+        getMenuFromContext,
+        menus: menusWithBuilders,
+    });
     return getCurrentMenu;
 };
 exports.createRouter = createRouter;

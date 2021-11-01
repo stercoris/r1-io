@@ -1,5 +1,6 @@
-import { IRouter, RouterBuilder } from "./IRouter";
-declare type EnumToMenu<C, E extends string> = Record<E, RouterBuilder<C>>;
-export declare const createRouter: <C extends {}, E extends string>(menuMap: EnumToMenu<C, E>, getMenuFromContext: (context: C) => E) => IRouter<C>;
+import { IRouter } from "./IRouter";
+import { BuildMenuMap } from "./helpers/configurations/addBuildersToRouterMap";
+declare type RouterCreator = <C extends {}, E extends string>(menuMap: BuildMenuMap<C, E>, getMenuFromContext: (context: C) => E) => IRouter<C>;
+export declare const createRouter: RouterCreator;
 export {};
 //# sourceMappingURL=Router.d.ts.map
