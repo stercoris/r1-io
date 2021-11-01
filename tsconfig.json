@@ -14,6 +14,7 @@
     "allowJs": true,
     "rootDir": "./src",
     "outDir": "./dist",
+    "typeRoots": ["./src/types"],
     "paths": {
       "@Unpacker/*": ["unpacker/*"],
       "@Middleware/*": ["middleware/*"],
@@ -26,5 +27,5 @@
       "@Root": ["index"]
     }
   },
-  "include": ["src"]
+  "include": ["src/*", "src/types/*"]
 }

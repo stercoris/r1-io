@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "yarn test",
-    "transpile": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
+    "transpile": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src  -o ./dist ",
     "build": "yarn transpile"
   },
   "author": "Dmitriy Rodin",

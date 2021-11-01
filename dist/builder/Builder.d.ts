@@ -1,5 +1,4 @@
 import { IBuilder } from "./IBuilder";
-import R1IO from "../index";
 declare type MenuConfig<C> = {
     build: R1IO.FC<C>;
     fallbackAction?: JSX.ActionPayload;
