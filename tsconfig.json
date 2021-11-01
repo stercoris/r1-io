@@ -20,7 +20,7 @@
       "@Middleware/*": ["middleware/*"],
       "@Factory/*": ["factory/*"],
       "@BuildVkKeyboard/*": ["buildVkKeyboard/*"],
-      "@Builder/*": ["builder/*"],
+      "@Router/*": ["router/*"],
       "@ActionBuffer/*": ["actionBuffer/*"],
       "@Action/*": ["action/*"],
       "@Types/*": ["types/*"],

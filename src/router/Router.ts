@@ -1,19 +1,9 @@
-import {
-  BuildKeyboard,
-  IBuilder,
-  MiddlewareMenuConfig,
-} from "@Builder/IBuilder";
+import { BuildKeyboard, IRouter, RouterBuilder, Router } from "@Router/IRouter";
 import { nodeToVkIoKeyboard } from "@BuildVkKeyboard/nodeToVkIoKeyboard";
 import { R1Node } from "@Factory/factory";
 import { unpackContent } from "@Unpacker/unpack";
-import R1IO from "@Root";
 
-type MenuConfig<C> = {
-  build: R1IO.FC<C>;
-  fallbackAction?: JSX.ActionPayload;
-};
-
-type EnumToMenu<C, E extends string> = Record<E, MenuConfig<C>>;
+type EnumToMenu<C, E extends string> = Record<E, RouterBuilder<C>>;
 
 const buildKeyboardAndConvertToKeyboardBuilder =
   (buildNode: Function) =>
@@ -22,16 +12,16 @@ const buildKeyboardAndConvertToKeyboardBuilder =
     return nodeToVkIoKeyboard(await unpackContent(unresolvedNode));
   };
 
-export const createBuilder = <C extends {}, E extends string>(
+export const createRouter = <C extends {}, E extends string>(
   menuMap: EnumToMenu<C, E>,
   getMenuFromContext: (context: C) => E
-): IBuilder<C> => {
-  const getCurrentMenu: IBuilder<C> = (context: C) => {
+): IRouter<C> => {
+  const getCurrentMenu: IRouter<C> = (context: C) => {
     const userCurrentMenu = getMenuFromContext(context);
 
-    for (const [name, menu] of Object.entries<MenuConfig<C>>(menuMap)) {
+    for (const [name, menu] of Object.entries<RouterBuilder<C>>(menuMap)) {
       if (userCurrentMenu === name) {
-        const menuConf: MiddlewareMenuConfig<C> = {
+        const menuConf: Router<C> = {
           ...menu,
           build: buildKeyboardAndConvertToKeyboardBuilder(
             menu.build

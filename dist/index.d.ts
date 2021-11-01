@@ -1,5 +1,5 @@
 export { createMiddleware } from "./middleware/Middleware";
-export { createBuilder } from "./builder/Builder";
+export { createRouter } from "./router/Router";
 export { createActionBuffer } from "./actionBuffer/ActionBuffer";
 export { createAction, createParametarizedAction } from "./action/createAction";
 export { ParameterizedActionPayload, SimpleActionPayload, } from "./action/iAction";

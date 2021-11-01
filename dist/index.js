@@ -22,11 +22,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createParametarizedAction = exports.createAction = exports.createActionBuffer = exports.createBuilder = exports.createMiddleware = void 0;
+exports.createParametarizedAction = exports.createAction = exports.createActionBuffer = exports.createRouter = exports.createMiddleware = void 0;
 var Middleware_1 = require("./middleware/Middleware");
 Object.defineProperty(exports, "createMiddleware", { enumerable: true, get: function () { return Middleware_1.createMiddleware; } });
-var Builder_1 = require("./builder/Builder");
-Object.defineProperty(exports, "createBuilder", { enumerable: true, get: function () { return Builder_1.createBuilder; } });
+var Router_1 = require("./router/Router");
+Object.defineProperty(exports, "createRouter", { enumerable: true, get: function () { return Router_1.createRouter; } });
 var ActionBuffer_1 = require("./actionBuffer/ActionBuffer");
 Object.defineProperty(exports, "createActionBuffer", { enumerable: true, get: function () { return ActionBuffer_1.createActionBuffer; } });
 var createAction_1 = require("./action/createAction");

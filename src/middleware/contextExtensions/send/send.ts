@@ -1,4 +1,4 @@
-import { BuildKeyboard } from "@Builder/IBuilder";
+import { BuildKeyboard } from "@Router/IRouter";
 import { ContextBundle } from "@Middleware/IContextBundle";
 import { IMessageContextSendOptions } from "vk-io";
 

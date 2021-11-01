@@ -1,5 +1,5 @@
 export { createMiddleware } from "@Middleware/Middleware";
-export { createBuilder } from "@Builder/Builder";
+export { createRouter } from "@Router/Router";
 export { createActionBuffer } from "@ActionBuffer/ActionBuffer";
 export { createAction, createParametarizedAction } from "@Action/createAction";
 

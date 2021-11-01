@@ -1,5 +1,5 @@
 import { actions } from "@Action/createAction";
-import { IBuilder } from "@Builder/IBuilder";
+import { IRouter } from "@Router/IRouter";
 import { applyCustomSend } from "@Middleware/contextExtensions/send/send";
 import { ContextBundle } from "@Middleware/IContextBundle";
 import { IMiddleware } from "@Middleware/IMiddleware";
@@ -9,7 +9,7 @@ export const createMiddleware = <
   JSXComponentProps,
   OutputContext extends JSXComponentProps = JSXComponentProps
 >(
-  getCurrentMenu: IBuilder<JSXComponentProps>,
+  getCurrentMenu: IRouter<JSXComponentProps>,
   contextWorker: IMiddleware<OutputContext>
 ): IMiddleware<OutputContext> => {
   const actionsBuffer = createActionBuffer(...actions);
