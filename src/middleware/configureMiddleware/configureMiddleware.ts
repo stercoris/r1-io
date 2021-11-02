@@ -36,13 +36,27 @@ export const createMiddlewareConfigurator: MiddlewareConfigurator =
     const customSendBuilded = customSend({
       buildKeyboard: getCurrentMenuAndBuildKeyboard,
     });
+
     asyncAttachToContext("send", customSendBuilded, context);
+
+    const beforeMenu = getCurrentMenu(builderContext);
 
     const actionStatus = await findAndCallAction(context.messagePayload);
 
+    const afterMenu = getCurrentMenu(builderContext);
+
+    if (beforeMenu !== afterMenu) {
+      if (beforeMenu.onMenuExit?.length)
+        await Promise.all(beforeMenu.onMenuExit.map(findAndCallAction));
+
+      if (afterMenu.onMenuEntering?.length)
+        await Promise.all(afterMenu.onMenuEntering.map(findAndCallAction));
+    }
+
     if (actionStatus === "PayloadNotFound") {
-      const { fallbackAction } = getCurrentMenu(builderContext);
-      if (fallbackAction) findAndCallAction(fallbackAction);
+      const { fallbackActions } = getCurrentMenu(builderContext);
+      if (fallbackActions?.length)
+        await Promise.all(fallbackActions.map(findAndCallAction));
     }
 
     return builderContext;

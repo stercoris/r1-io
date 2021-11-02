@@ -3,7 +3,9 @@ import { KeyboardBuilder } from "vk-io";
 export type BuildKeyboard<C> = (context: C) => Promise<KeyboardBuilder>;
 
 export interface BaseRouter {
-  fallbackAction?: JSX.ActionPayload;
+  fallbackActions?: JSX.ActionPayload[];
+  onMenuExit?: JSX.ActionPayload[];
+  onMenuEntering?: JSX.ActionPayload[];
 }
 
 export interface Router<C> extends BaseRouter {
