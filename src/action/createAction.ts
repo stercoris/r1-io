@@ -1,53 +1,23 @@
-import {
-  ParameterizedActionPayload,
-  IAction,
-  ParameterizedAction,
-  ParameterizedPayloadCreateFunc,
-  SimpleAction,
-  SimpleActionPayload,
-} from "@Action/iAction";
+import { SimpleAction } from "@Action/iAction";
+import { Actions } from "./actions";
 
-export const actions: IAction<any, any>[] = [];
+export interface SimpleActionPayload {
+  name: string;
+  type: "action";
+}
 
-const checkIfActionAlreadyExist = (name: string) => {
-  const isActionExists = actions.find((a) => a.name === name) !== undefined;
-  return isActionExists;
-};
+export type SimpleActionPayloadCreateFunc = () => SimpleActionPayload;
 
-export const createParametarizedAction = <KeyboardBuilderContext, T = {}>(
-  name: string,
-  action: ParameterizedAction<T, KeyboardBuilderContext>
-): ParameterizedPayloadCreateFunc<T> => {
-  if (checkIfActionAlreadyExist(name)) {
-    throw new Error(
-      `Simple or parameterized action with name "${name}" already exist`
-    );
-  }
-
-  actions.push({ do: action, name });
-
-  const setup = (params: T): ParameterizedActionPayload<T> => ({
-    name,
-    params,
-    type: "parameterizedAction",
-  });
-
-  return setup;
-};
-
-export const createAction = <KeyboardBuilderContext>(
+type ActionCreator = <KeyboardBuilderContext>(
   name: string,
   action: SimpleAction<KeyboardBuilderContext>
-): (() => SimpleActionPayload) => {
-  if (checkIfActionAlreadyExist(name)) {
-    throw new Error(
-      `Simple or parameterized action with name "${name}" already exist`
-    );
-  }
+) => SimpleActionPayloadCreateFunc;
 
-  actions.push({ do: action, name });
+export const createAction: ActionCreator = (name, action) => {
+  if (Actions.isActionAlreadyExists(name))
+    throw new Error(`Action with name "${name}" already exist`);
 
-  const setup = (): SimpleActionPayload => ({ name, type: "action" });
+  Actions.addAction({ do: action, name });
 
-  return setup;
+  return () => ({ name, type: "action" });
 };
