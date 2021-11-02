@@ -21,19 +21,19 @@ export interface BotContext {
 
 const gotoMenuAction = createParametarizedAction<BotContext, Menus>(
   "goto menu",
-  (menu, { send }, { user }) => {
+  async (menu, { send }, { user }) => {
     user.selectedMenu = menu;
-    send(`Welcome to ${menu}`);
+    await send(`Welcome to ${menu}`);
   }
 );
 
 const setRandomUsername = createAction<BotContext>(
   "set random username",
-  ({ send }, { user }) => {
+  async ({ send }, { user }) => {
     const getRandomInt = (max: number) => Math.floor(Math.random() * max);
     const randomName = ["Fish", "Sticks", "Kanye West", "Toivo", "SunBoy"];
     user.name = randomName[getRandomInt(4)];
-    send(`Your name is ${user.name}`);
+    await send(`Your name is ${user.name}`);
   }
 );
 
