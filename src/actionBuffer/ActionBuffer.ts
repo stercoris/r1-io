@@ -1,39 +1,12 @@
 import { IAction, ParameterizedAction, SimpleAction } from "@Action/iAction";
 import { FindAndCall, IActionBuffer } from "@ActionBuffer/IActionBuffer";
+import { findAndCallApi } from "./api/findAndCall";
 
-export const createActionBuffer = <InternalContext>(
+type ActionBufferCreator = <InternalContext>(
   ...actions: IAction<InternalContext, any>[]
-): IActionBuffer<InternalContext> => {
-  const findAndCall: FindAndCall<InternalContext> = async (
-    payload,
-    { context, builderContext }
-  ) => {
-    if (!payload) {
-      return "PayloadNotFound";
-    }
+) => IActionBuffer<InternalContext>;
 
-    const { name, type, params } = payload;
-
-    const action = actions.find((a) => a.name === name);
-
-    if (!action) {
-      await context.send("Fallback couse no action was found");
-      return "ActionNotFound";
-    }
-
-    if (type === "parameterizedAction") {
-      const parameterizedAction = action.do as ParameterizedAction<
-        any,
-        InternalContext
-      >;
-      await parameterizedAction(params, context, builderContext);
-    } else {
-      const simpleAction = action.do as SimpleAction<InternalContext>;
-      await simpleAction(context, builderContext);
-    }
-
-    return "ActionExecuted";
-  };
-
+export const createActionBuffer: ActionBufferCreator = (...actions) => {
+  const findAndCall = findAndCallApi({ actions });
   return { findAndCall };
 };
