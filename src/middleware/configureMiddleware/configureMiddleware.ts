@@ -28,6 +28,9 @@ export const createMiddlewareConfigurator: MiddlewareConfigurator =
     const findAndCallAction = (payload: JSX.ActionPayload) =>
       actions.findAndCall(payload, { builderContext, context });
 
+    const findAndCallAllActions = (actions: JSX.ActionPayload[]) =>
+      Promise.all(actions.map(findAndCallAction));
+
     if (!builderContext) return;
 
     const getCurrentMenuAndBuildKeyboard = () =>
@@ -47,16 +50,15 @@ export const createMiddlewareConfigurator: MiddlewareConfigurator =
 
     if (beforeMenu !== afterMenu) {
       if (beforeMenu.onMenuExit?.length)
-        await Promise.all(beforeMenu.onMenuExit.map(findAndCallAction));
+        await findAndCallAllActions(beforeMenu.onMenuExit);
 
       if (afterMenu.onMenuEntering?.length)
-        await Promise.all(afterMenu.onMenuEntering.map(findAndCallAction));
+        await findAndCallAllActions(afterMenu.onMenuEntering);
     }
 
     if (actionStatus === "PayloadNotFound") {
       const { fallbackActions } = getCurrentMenu(builderContext);
-      if (fallbackActions?.length)
-        await Promise.all(fallbackActions.map(findAndCallAction));
+      if (fallbackActions?.length) await findAndCallAllActions(fallbackActions);
     }
 
     return builderContext;
