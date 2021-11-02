@@ -13,10 +13,10 @@ type RouterCreator = <C extends {}, E extends string>(
 export const createRouter: RouterCreator = (menuMap, getMenuFromContext) => {
   const menusWithBuilders = configureMenuBuilders(menuMap);
 
-  const getCurrentMenu = getCurrentMenuFabric({
+  const getCurrentMenuConfig = getCurrentMenuFabric({
     getMenuFromContext,
     menus: menusWithBuilders,
   });
 
-  return getCurrentMenu;
+  return getCurrentMenuConfig;
 };

@@ -7,7 +7,8 @@
     "test": "yarn test",
     "replacePaths": "tscpaths -p tsconfig.json -s ./src  -o ./dist",
     "transpile": "tsc --project tsconfig.json ",
-    "build": "yarn transpile && yarn replacePaths"
+    "build": "yarn transpile && yarn replacePaths",
+    "prepare": "yarn build"
   },
   "author": "Dmitriy Rodin",
   "license": "GPL-3.0-or-later",
@@ -20,5 +21,8 @@
     "middleware-io": "^2.8.0",
     "typescript": "^4.4.4",
     "vk-io": "^4.4.0"
-  }
+  },
+  "files": [
+    "dist/**/*"
+  ]
 }
