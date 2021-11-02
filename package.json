@@ -24,5 +24,15 @@
   },
   "files": [
     "dist/**/*"
+  ],
+  "keywords": [
+    "vk",
+    "vk-io",
+    "bot",
+    "js",
+    "node",
+    "react",
+    "JSX",
+    "TSX"
   ]
 }
