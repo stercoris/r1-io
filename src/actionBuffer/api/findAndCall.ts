@@ -14,18 +14,16 @@ export const findAndCallApi: FindAndCallCreator =
   async (payload, { context, builderContext }) => {
     if (!payload) return "PayloadNotFound";
 
-    const { name, type, params } = payload;
+    const { name, params } = payload;
 
     const action = actions.find((a) => a.name === name);
 
     if (!action) return "ActionNotFound";
 
-    if (type === "parameterizedAction") {
-      const parameterizedAction = action.do as ParameterizedAction<any, any>;
-      await parameterizedAction(params, context, builderContext);
+    if (action.type === "ParameterizedAction") {
+      await action.do(params, context, builderContext);
     } else {
-      const simpleAction = action.do as SimpleAction<any>;
-      await simpleAction(context, builderContext);
+      await action.do(context, builderContext);
     }
 
     return "ActionExecuted";

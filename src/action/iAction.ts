@@ -13,9 +13,14 @@ export type SimpleAction<I> = (
   keyboardBuilderProps: I
 ) => MaybePromise;
 
-export interface IAction<KeyboardBuilderContext, T> {
-  do:
-    | ParameterizedAction<T, KeyboardBuilderContext>
-    | SimpleAction<KeyboardBuilderContext>;
-  name: string;
-}
+export type IAction<KeyboardBuilderContext, T> =
+  | {
+      do: ParameterizedAction<T, KeyboardBuilderContext>;
+      name: string;
+      type: "ParameterizedAction";
+    }
+  | {
+      do: SimpleAction<KeyboardBuilderContext>;
+      name: string;
+      type: "SimpleAction";
+    };

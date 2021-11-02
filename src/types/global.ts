@@ -21,7 +21,6 @@ declare global {
     type ActionPayload = {
       name: string;
       params?: Object;
-      type: "parameterizedAction" | "action";
     };
 
     type Colors =
