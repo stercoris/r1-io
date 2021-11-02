@@ -1,4 +1,3 @@
-import { BuildKeyboard } from "../../../router/IRouter";
-import { ContextBundle } from "../../IContextBundle";
-export declare const applyCustomSend: <C extends {}>(build: BuildKeyboard<C>, { builderContext, context }: ContextBundle<C>) => void;
+import { KeyboardBuilder, MessageContext } from "vk-io";
+export declare const applyCustomSend: (build: () => Promise<KeyboardBuilder>, context: MessageContext) => void;
 //# sourceMappingURL=send.d.ts.map

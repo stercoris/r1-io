@@ -2,29 +2,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createMiddleware = void 0;
 const createAction_1 = require("../action/createAction");
-const send_1 = require("./contextExtensions/send/send");
 const ActionBuffer_1 = require("../actionBuffer/ActionBuffer");
+const configureMiddleware_1 = require("./configureMiddleware/configureMiddleware");
 const createMiddleware = (getCurrentMenu, contextWorker) => {
     const actionsBuffer = (0, ActionBuffer_1.createActionBuffer)(...createAction_1.actions);
-    const middleware = async (context, next) => {
-        const builderContext = await contextWorker(context, next);
-        if (!builderContext)
-            return;
-        const contextBundle = {
-            context,
-            builderContext,
-        };
-        const getCurrentMenuAndBuildKeyboard = (context) => getCurrentMenu(context).build(context);
-        (0, send_1.applyCustomSend)(getCurrentMenuAndBuildKeyboard, contextBundle);
-        const actionStatus = await actionsBuffer.findAndCall(context.messagePayload, contextBundle);
-        const { fallbackAction } = getCurrentMenu(builderContext);
-        if (actionStatus === "PayloadNotFound") {
-            if (fallbackAction)
-                await actionsBuffer.findAndCall(fallbackAction, contextBundle);
-        }
-        return builderContext;
-    };
-    return middleware;
+    return (0, configureMiddleware_1.createMiddlewareConfigurator)({
+        actions: actionsBuffer,
+        applyUserMiddleware: contextWorker,
+        getCurrentMenu: getCurrentMenu,
+    });
 };
 exports.createMiddleware = createMiddleware;
 //# sourceMappingURL=Middleware.js.map
