@@ -1,3 +1,8 @@
-import { KeyboardBuilder, MessageContext } from "vk-io";
-export declare const applyCustomSend: (build: () => Promise<KeyboardBuilder>, context: MessageContext) => void;
+import { KeyboardBuilder } from "vk-io";
+import { ParamsMiddleware } from "../IParamsMiddleware";
+interface CustomSendProps {
+    buildKeyboard: () => Promise<KeyboardBuilder>;
+}
+export declare const customSend: ParamsMiddleware<CustomSendProps>;
+export {};
 //# sourceMappingURL=send.d.ts.map

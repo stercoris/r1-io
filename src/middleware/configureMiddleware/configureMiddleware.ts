@@ -1,5 +1,6 @@
 import { IActionBuffer } from "@ActionBuffer/IActionBuffer";
-import { applyCustomSend } from "@Middleware/contextExtensions/send/send";
+import { asyncAttachToContext } from "@Middleware/contextExtensions/paramsMiddleware";
+import { customSend } from "@Middleware/contextExtensions/send/send";
 import { IMiddleware } from "@Middleware/IMiddleware";
 import { IRouter } from "@Router/IRouter";
 
@@ -32,7 +33,10 @@ export const createMiddlewareConfigurator: MiddlewareConfigurator =
     const getCurrentMenuAndBuildKeyboard = () =>
       getCurrentMenu(builderContext).build(builderContext);
 
-    applyCustomSend(getCurrentMenuAndBuildKeyboard, context);
+    const customSendBuilded = customSend({
+      buildKeyboard: getCurrentMenuAndBuildKeyboard,
+    });
+    asyncAttachToContext("send", customSendBuilded, context);
 
     const actionStatus = await findAndCallAction(context.messagePayload);
 

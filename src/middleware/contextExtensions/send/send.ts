@@ -1,17 +1,14 @@
-import {
-  IMessageContextSendOptions,
-  KeyboardBuilder,
-  MessageContext,
-} from "vk-io";
+import { IMessageContextSendOptions, KeyboardBuilder } from "vk-io";
+import { ParamsMiddleware } from "../IParamsMiddleware";
 
-export const applyCustomSend = (
-  build: () => Promise<KeyboardBuilder>,
-  context: MessageContext
-) => {
-  const oldSend = context.send;
-  context.send = async (text: string) => {
-    const keyboard = await build();
-    const params: IMessageContextSendOptions = { keyboard };
-    return await oldSend.bind(context)(text, params);
-  };
-};
+interface CustomSendProps {
+  buildKeyboard: () => Promise<KeyboardBuilder>;
+}
+
+export const customSend: ParamsMiddleware<CustomSendProps> =
+  ({ buildKeyboard }) =>
+  async (
+    text: string | IMessageContextSendOptions,
+    params?: IMessageContextSendOptions
+  ) =>
+    [text, { keyboard: await buildKeyboard(), ...params }];

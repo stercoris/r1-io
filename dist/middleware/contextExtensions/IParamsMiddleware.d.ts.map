@@ -1,0 +1,1 @@
+{"version":3,"file":"IParamsMiddleware.d.ts","sourceRoot":"","sources":["../../../src/middleware/contextExtensions/IParamsMiddleware.ts"],"names":[],"mappings":"AAAA,oBAAY,yBAAyB,GAAG,QAAQ,CAAC;AAEjD,oBAAY,wBAAwB,GAAG,QAAQ,CAAC;AAEhD,oBAAY,gBAAgB,CAAC,CAAC,IAAI,CAChC,IAAI,EAAE,CAAC,KACJ,yBAAyB,GAAG,wBAAwB,CAAC"}
