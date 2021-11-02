@@ -1,6 +1,6 @@
 import R1IO, {
   createAction,
-  createBuilder,
+  createRouter,
   createMiddleware,
   createParametarizedAction,
 } from "../dist";
@@ -66,7 +66,7 @@ const user: User = {
   selectedMenu: Menus.Main,
 };
 
-const router = createBuilder<BotContext, Menus>(
+const router = createRouter<BotContext, Menus>(
   {
     [Menus.Main]: { build: MainMenu },
     [Menus.Settings]: { build: SettingsMenu },

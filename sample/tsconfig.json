@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "jsx": "react",
+    "jsxFactory": "R1IO.createElement",
+    "jsxFragmentFactory": "R1IO.Fragment",
     "target": "ESNext",
     "module": "CommonJS",
     "esModuleInterop": true,
