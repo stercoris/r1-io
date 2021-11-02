@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="img/logo.png" alt="" width="180" height="60">
+    <img src="https://github.com/stercoris/r1-io/blob/master/img/logo.png?raw=true"  height="80">
 </div>
 
 <div align="center">
@@ -12,6 +12,10 @@
 </div>
 
 <div align="center">
+
+- You can see a simple project [here](https://github.com/stercoris/r1-io/tree/master/sample)
+
+- You can see a more advanced project [here](https://github.com/stercoris/vk-fi)
 
 # Guide
 
@@ -42,19 +46,19 @@ export interface BotContext {
 ```typescript
 const gotoMenuAction = createParametarizedAction<BotContext, Menus>(
   "goto menu",
-  (menu, { send }, { user }) => {
+  async (menu, { send }, { user }) => {
     user.selectedMenu = menu;
-    send(`Welcome to ${menu}`);
+    await send(`Welcome to ${menu}`);
   }
 );
 
 const setRandomUsername = createAction<BotContext>(
   "set random username",
-  ({ send }, { user }) => {
+  async ({ send }, { user }) => {
     const getRandomInt = (max: number) => Math.floor(Math.random() * max);
     const randomName = ["Fish", "Sticks", "Kanye West", "Toivo", "SunBoy"];
     user.name = randomName[getRandomInt(4)];
-    send(`Your name is ${user.name}`);
+    await send(`Your name is ${user.name}`);
   }
 );
 ```
@@ -99,7 +103,7 @@ const user: User = {
   selectedMenu: Menus.Main,
 };
 
-const router = createBuilder<BotContext, Menus>(
+const router = createRouter<BotContext, Menus>(
   {
     [Menus.Main]: { build: MainMenu },
     [Menus.Settings]: { build: SettingsMenu },
