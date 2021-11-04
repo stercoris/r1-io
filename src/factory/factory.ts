@@ -3,10 +3,13 @@ import { parseFunctional } from "@Factory/elements/functional/parser";
 
 export type ComponentType = "row" | "button" | "functional" | "menu";
 
-export type R1Node = {
-  type: ComponentType;
-  content: R1Node[] | JSX.ButtonPayload;
+export type ButtonNode = { type: "button"; content: JSX.ButtonPayload };
+export type ContentNode = {
+  type: "row" | "functional" | "menu";
+  content: (ContentNode | ButtonNode)[];
 };
+
+export type R1Node = ContentNode | ButtonNode;
 
 const create =
   (name: ComponentType) =>
