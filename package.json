@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "middleware-io": "^2.8.0",
-    "typescript": "^4.4.4",
+    "promise-deep-resolve-ts": "^1.0.2",
+    "typescript": "4.5.1-rc",
     "vk-io": "^4.4.0"
   },
   "files": [
