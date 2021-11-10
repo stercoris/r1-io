@@ -10,5 +10,7 @@ export const parseFunctional: FunctionalParser = (func, props, ...children) => {
   const content =
     func instanceof Function ? func({ children, ...props }) : children;
 
-  return { type: "functional", content };
+  const flattedContent = content instanceof Array ? content.flat() : [content];
+
+  return { type: "functional", content: flattedContent };
 };

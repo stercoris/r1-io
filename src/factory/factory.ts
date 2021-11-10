@@ -13,7 +13,10 @@ export type R1Node = ContentNode | ButtonNode;
 
 const create =
   (name: ComponentType) =>
-  (_: any, __: any, ...children: any[]) => ({ type: name, content: children });
+  (_: any, __: any, ...children: any[]) => ({
+    type: name,
+    content: children instanceof Array ? children.flat() : children,
+  });
 
 export const createElement = async (
   name: ComponentType | Function,
