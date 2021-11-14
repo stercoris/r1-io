@@ -1,6 +1,11 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
+
+import {ButtonColor} from 'vk-io';
+
 declare global {
   namespace JSX {
-    interface Element extends Promise<R1IO.ReactElement<any, any>> {}
+    type Element = Promise<R1IO.ReactElement<any, any>>;
 
     interface ElementAttributesProperty {
       props: {};
@@ -9,14 +14,7 @@ declare global {
       children: {};
     }
 
-    interface IntrinsicAttributes extends R1IO.Attributes {}
-
-    enum ButtonColor {
-      SECONDARY = "secondary",
-      PRIMARY = "primary",
-      NEGATIVE = "negative",
-      POSITIVE = "positive",
-    }
+    type IntrinsicAttributes = R1IO.Attributes;
 
     type ActionPayload = {
       name: string;
@@ -25,10 +23,10 @@ declare global {
 
     type Colors =
       | ButtonColor
-      | "secondary"
-      | "primary"
-      | "negative"
-      | "positive";
+      | 'secondary'
+      | 'primary'
+      | 'negative'
+      | 'positive';
     interface ButtonProps {
       label: string;
       color?: Colors;
@@ -46,7 +44,7 @@ declare global {
 
     type Button =
       | Promise<R1IO.ReactElement<ButtonPayload>>
-      //Added to buttons fragments array support
+      // Added to buttons fragments array support
       | Promise<R1IO.ReactElement<ButtonPayload>>[];
     type Row =
       | Promise<R1IO.ReactElement<Button>>
@@ -54,10 +52,10 @@ declare global {
       | Promise<R1IO.ReactElement<Button>>[];
 
     interface IntrinsicElements {
-      button: Omit<ButtonProps, "label"> &
-        ({ label: string } | { children: string[] | string });
-      row: { children: Button | Button[] };
-      menu: { children: Row | Row[] };
+      button: Omit<ButtonProps, 'label'> &
+        ({label: string} | {children: string[] | string});
+      row: {children: Button | Button[]};
+      menu: {children: Row | Row[]};
     }
   }
 
@@ -85,7 +83,7 @@ declare global {
       children: ReactNode;
     }
 
-    interface ReactNodeArray extends Array<ReactNode> {}
+    type ReactNodeArray = Array<ReactNode>;
     type ReactFragment = {} | ReactNodeArray;
     type ReactNode =
       | ReactChild
@@ -95,14 +93,14 @@ declare global {
       | null
       | undefined;
 
-    type PropsWithChildren<P> = P & { children?: ReactNode | undefined };
+    type PropsWithChildren<P> = P & {children?: ReactNode | undefined};
 
     interface FunctionComponent<P = {}> {
       (props: PropsWithChildren<P>): Promise<ReactElement<any, any>> | null;
     }
 
     type Key = string | number;
-    type Attributes = { key?: Key | null | undefined };
+    type Attributes = {key?: Key | null | undefined};
   }
 }
 

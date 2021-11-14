@@ -1,4 +1,4 @@
-import { MessageContext } from "vk-io";
+import {MessageContext} from 'vk-io';
 
 type MaybePromise = Promise<unknown> | unknown;
 
@@ -17,10 +17,10 @@ export type IAction<KeyboardBuilderContext, T> =
   | {
       do: ParameterizedAction<T, KeyboardBuilderContext>;
       name: string;
-      type: "ParameterizedAction";
+      type: 'ParameterizedAction';
     }
   | {
       do: SimpleAction<KeyboardBuilderContext>;
       name: string;
-      type: "SimpleAction";
+      type: 'SimpleAction';
     };

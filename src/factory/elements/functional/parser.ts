@@ -1,4 +1,4 @@
-import { R1Node } from "@Factory/factory";
+import {R1Node} from '@Factory/factory';
 
 export type FunctionalParser = (
   func: Function | string,
@@ -8,9 +8,9 @@ export type FunctionalParser = (
 
 export const parseFunctional: FunctionalParser = (func, props, ...children) => {
   const content =
-    func instanceof Function ? func({ children, ...props }) : children;
+    func instanceof Function ? func({children, ...props}) : children;
 
   const flattedContent = content instanceof Array ? content.flat() : [content];
 
-  return { type: "functional", content: flattedContent };
+  return {type: 'functional', content: flattedContent};
 };

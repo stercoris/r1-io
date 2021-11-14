@@ -1,4 +1,4 @@
-import { RouterMenuMap } from "../configurations/addBuildersToRouterMap";
+import {RouterMenuMap} from '../configurations/addBuildersToRouterMap';
 
 interface GetCurrentMenuProps<C extends {}, E extends string> {
   menus: RouterMenuMap<C, E>;
@@ -10,8 +10,8 @@ type GetCurrentMenuFabric = <C extends {}, E extends string>(
 ) => (context: C) => RouterMenuMap<C, E>[E];
 
 export const getCurrentMenuFabric: GetCurrentMenuFabric =
-  ({ getMenuFromContext, menus }) =>
-  (context) => {
+  ({getMenuFromContext, menus}) =>
+  context => {
     const userCurrentMenu = getMenuFromContext(context);
 
     const currentMenuConfig = menus[userCurrentMenu];

@@ -1,5 +1,5 @@
-import { IAction } from "@Action/iAction";
-import { IsActionAlreadyExists } from "@ActionBuffer/IActionBuffer";
+import {IAction} from '@Action/iAction';
+import {IsActionAlreadyExists} from '@ActionBuffer/IActionBuffer';
 
 interface IsActionAlreadyExistsBuilderProps<InternalContext> {
   actions: IAction<InternalContext, any>[];
@@ -10,6 +10,6 @@ type IsActionAlreadyExistsBuilder = <InternalContext>(
 ) => IsActionAlreadyExists;
 
 export const isActionAlreadyExistsApi: IsActionAlreadyExistsBuilder =
-  ({ actions }) =>
-  (name) =>
-    !!actions.find((a) => a.name === name);
+  ({actions}) =>
+  name =>
+    !!actions.find(a => a.name === name);

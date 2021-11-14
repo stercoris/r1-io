@@ -1,5 +1,5 @@
-import { SimpleAction } from "@Action/iAction";
-import { Actions } from "./actions";
+import {SimpleAction} from '@Action/iAction';
+import {Actions} from './actions';
 
 export type SimpleActionPayloadCreateFunc = () => JSX.ActionPayload;
 
@@ -9,10 +9,11 @@ type ActionCreator = <KeyboardBuilderContext>(
 ) => SimpleActionPayloadCreateFunc;
 
 export const createAction: ActionCreator = (name, action) => {
-  if (Actions.isActionAlreadyExists(name))
+  if (Actions.isActionAlreadyExists(name)) {
     throw new Error(`Action with name "${name}" already exist`);
+  }
 
-  Actions.addAction({ do: action, name, type: "SimpleAction" });
+  Actions.addAction({do: action, name, type: 'SimpleAction'});
 
-  return () => ({ name });
+  return () => ({name});
 };

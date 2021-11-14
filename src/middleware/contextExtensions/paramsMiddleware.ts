@@ -1,8 +1,8 @@
-import { MessageContext } from "vk-io";
+import {MessageContext} from 'vk-io';
 import {
   AsyncParamsMiddlewareFunc,
   SuncParamsMiddlewareFunc,
-} from "./IParamsMiddleware";
+} from './IParamsMiddleware';
 
 export const asyncAttachToContext = (
   fieldName: string,

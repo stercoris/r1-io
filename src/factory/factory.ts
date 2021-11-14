@@ -1,11 +1,11 @@
-import { parseButton } from "@Factory/elements/button/parser";
-import { parseFunctional } from "@Factory/elements/functional/parser";
+import {parseButton} from '@Factory/elements/button/parser';
+import {parseFunctional} from '@Factory/elements/functional/parser';
 
-export type ComponentType = "row" | "button" | "functional" | "menu";
+export type ComponentType = 'row' | 'button' | 'functional' | 'menu';
 
-export type ButtonNode = { type: "button"; content: JSX.ButtonPayload };
+export type ButtonNode = {type: 'button'; content: JSX.ButtonPayload};
 export type ContentNode = {
-  type: "row" | "functional" | "menu";
+  type: 'row' | 'functional' | 'menu';
   content: (ContentNode | ButtonNode)[];
 };
 
@@ -25,12 +25,12 @@ export const createElement = async (
 ) => {
   const parsers = {
     button: parseButton,
-    row: create("row"),
-    menu: create("menu"),
+    row: create('row'),
+    menu: create('menu'),
     functional: parseFunctional,
   };
 
-  const standartName = typeof name === "function" ? "functional" : name;
+  const standartName = typeof name === 'function' ? 'functional' : name;
   const parser = parsers[standartName];
 
   return parser(name, props, ...children);

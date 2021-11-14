@@ -1,8 +1,7 @@
-import { IRouter } from "@Router/IRouter";
-import { IMiddleware } from "@Middleware/IMiddleware";
-import { createActionBuffer } from "@ActionBuffer/ActionBuffer";
-import { createMiddlewareConfigurator } from "./configureMiddleware/configureMiddleware";
-import { Actions } from "@Action/actions";
+import {IRouter} from '@Router/IRouter';
+import {IMiddleware} from '@Middleware/IMiddleware';
+import {Actions} from '@Action/actions';
+import {createMiddlewareConfigurator} from './configureMiddleware/configureMiddleware';
 
 type MiddlewareCreator = <
   JSXComponentProps,
@@ -15,10 +14,9 @@ type MiddlewareCreator = <
 export const createMiddleware: MiddlewareCreator = (
   getCurrentMenu,
   contextWorker
-) => {
-  return createMiddlewareConfigurator({
+) =>
+  createMiddlewareConfigurator({
     actions: Actions,
     applyUserMiddleware: contextWorker,
-    getCurrentMenu: getCurrentMenu,
+    getCurrentMenu,
   });
-};

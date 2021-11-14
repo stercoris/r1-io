@@ -1,7 +1,7 @@
-import { IAction } from "@Action/iAction";
-import { ContextBundle } from "@Middleware/IContextBundle";
+import {IAction} from '@Action/iAction';
+import {ContextBundle} from '@Middleware/IContextBundle';
 
-type ActionResponse = "ActionNotFound" | "ActionExecuted" | "PayloadNotFound";
+type ActionResponse = 'ActionNotFound' | 'ActionExecuted' | 'PayloadNotFound';
 
 export type FindAndCall<InternalContext> = (
   payload: JSX.ActionPayload,

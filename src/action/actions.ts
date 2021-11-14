@@ -1,3 +1,3 @@
-import { createActionBuffer } from "@Root";
+import {createActionBuffer} from '@Root';
 
 export const Actions = createActionBuffer();

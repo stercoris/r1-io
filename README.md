@@ -23,7 +23,6 @@
 
 <div align="center">
 
-
 # Guide
 
 You can see a simple project [here](https://github.com/stercoris/r1-io/tree/master/sample)
@@ -31,8 +30,6 @@ You can see a simple project [here](https://github.com/stercoris/r1-io/tree/mast
 You can see a more advanced project [here](https://github.com/stercoris/vk-fi)
 
 </div>
-
-
 
 1.  Create context of app
 

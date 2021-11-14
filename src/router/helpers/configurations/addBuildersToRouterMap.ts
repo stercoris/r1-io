@@ -1,10 +1,14 @@
-import { Router, RouterBuilder } from "@Router/IRouter";
-import { buildFromJSXToVKKeyboard } from "./buildFromJSXToVKKeyboard";
-import "vk-io";
-const configureBuilder = <C extends {}, E extends string>([name, config]: [
-  E,
-  RouterBuilder<C>
-]) => [name, { ...config, build: buildFromJSXToVKKeyboard(config.build) }];
+import {Router, RouterBuilder} from '@Router/IRouter';
+import {buildFromJSXToVKKeyboard} from './buildFromJSXToVKKeyboard';
+import 'vk-io';
+
+const configureBuilder = <C extends Record<string, unknown>, E extends string>([
+  name,
+  config,
+]: [E, RouterBuilder<C>]) => [
+  name,
+  {...config, build: buildFromJSXToVKKeyboard(config.build)},
+];
 
 const getTypeFixedRouterMap = <C extends {}, E extends string>(
   menuMap: BuildMenuMap<C, E>
@@ -17,7 +21,7 @@ type MenuBuildersConfigurator = <C extends {}, E extends string>(
   menuMap: BuildMenuMap<C, E>
 ) => RouterMenuMap<C, E>;
 
-export const configureMenuBuilders: MenuBuildersConfigurator = (menuMap) => {
+export const configureMenuBuilders: MenuBuildersConfigurator = menuMap => {
   const rawMenus = getTypeFixedRouterMap(menuMap);
   const configuredMenusArray = rawMenus.map(configureBuilder);
 
