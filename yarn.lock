@@ -1859,10 +1859,10 @@ progress@^2.0.0:
   resolved "https://registry.npmjs.org/progress/-/progress-2.0.3.tgz"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-promise-deep-resolve-ts@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/promise-deep-resolve-ts/-/promise-deep-resolve-ts-1.0.2.tgz"
-  integrity sha512-wwrFC1GCPe6h/BhANpa7JujZMlLVIuMmZMGkA40eYzDM9qJtlSVmZBhPYekNLsKOqaMzeLjCTkVoB9LjqLu3Qw==
+promise-deep-resolve-ts@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/promise-deep-resolve-ts/-/promise-deep-resolve-ts-1.0.5.tgz#9672913ea884c9f137b46682413570483b7b3c9c"
+  integrity sha512-I0DaNYmjyeW0iljYKnuBi0aJIslaiSVQX3dYgJvrZ/N0xNiQm1N1VP4HpTMDLs229vevad44fnlQ3O552Cy95g==
   dependencies:
     typescript "^4.5.1-rc"
 
