@@ -35,8 +35,8 @@ You can see a more advanced project [here](https://github.com/stercoris/vk-fi)
 
 ```typescript
 enum Menus {
-  Main = "main",
-  Settings = "settings",
+  Main = 'main',
+  Settings = 'settings',
 }
 
 interface User {
@@ -55,18 +55,18 @@ export interface BotContext {
 
 ```typescript
 const gotoMenuAction = createParametarizedAction<BotContext, Menus>(
-  "goto menu",
-  async (menu, { send }, { user }) => {
+  'goto menu',
+  async (menu, {send}, {user}) => {
     user.selectedMenu = menu;
     await send(`Welcome to ${menu}`);
   }
 );
 
 const setRandomUsername = createAction<BotContext>(
-  "set random username",
-  async ({ send }, { user }) => {
+  'set random username',
+  async ({send}, {user}) => {
     const getRandomInt = (max: number) => Math.floor(Math.random() * max);
-    const randomName = ["Fish", "Sticks", "Kanye West", "Toivo", "SunBoy"];
+    const randomName = ['Fish', 'Sticks', 'Kanye West', 'Toivo', 'SunBoy'];
     user.name = randomName[getRandomInt(4)];
     await send(`Your name is ${user.name}`);
   }
@@ -89,7 +89,7 @@ const SettingsMenu: R1IO.FC<BotContext> = async () => (
   </menu>
 );
 
-const MainMenu: R1IO.FC<BotContext> = ({ user }) => (
+const MainMenu: R1IO.FC<BotContext> = ({user}) => (
   <menu>
     <row>
       <button label={`Hello ${user.name}`} />
@@ -109,19 +109,19 @@ const MainMenu: R1IO.FC<BotContext> = ({ user }) => (
 
 ```typescript
 const user: User = {
-  name: "Dmitriy",
+  name: 'Dmitriy',
   selectedMenu: Menus.Main,
 };
 
 const router = createRouter<BotContext, Menus>(
   {
-    [Menus.Main]: { build: MainMenu },
-    [Menus.Settings]: { build: SettingsMenu },
+    [Menus.Main]: {build: MainMenu},
+    [Menus.Settings]: {build: SettingsMenu},
   },
-  ({ user }) => user.selectedMenu
+  ({user}) => user.selectedMenu
 );
 
-export const RootMiddleware = createMiddleware(router, async () => ({ user }));
+export const RootMiddleware = createMiddleware(router, async () => ({user}));
 ```
 
 <hr>
@@ -155,7 +155,7 @@ yarn add vk-io@4.4.0
 or
 
 ```bash
-npm i r1-io@4.4.0
+npm i vk-io@4.4.0
 ```
 
 <hr>
@@ -183,7 +183,7 @@ npm i r1-io@4.4.0
 1.  React components instead of keyboard builder
 
 ```tsx
-const MainMenu: R1IO.FC<BotContext> = ({ user }) => (
+const MainMenu: R1IO.FC<BotContext> = ({user}) => (
   <menu>
     <row>
       <button label={`Hello ${user.name}`} />
@@ -202,7 +202,7 @@ const MainMenu: R1IO.FC<BotContext> = ({ user }) => (
 2.  Async react components
 
 ```tsx
-const MainMenu: R1IO.FC<BotContext> = async ({ user }) => {
+const MainMenu: R1IO.FC<BotContext> = async ({user}) => {
   await delay(2000);
   <menu>
     <row>
