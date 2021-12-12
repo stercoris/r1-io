@@ -23,7 +23,7 @@ describe('Create Simple Action', () => {
   });
 
   test('Action should be in ActionsBuffer', () => {
-    expect(Actions.isActionAlreadyExists(TEST_ACTION_NAME)).toBeTruthy();
+    expect(Actions.isAlreadyExists(TEST_ACTION_NAME)).toBeTruthy();
   });
 
   test('Action executor should have correct props', async () => {

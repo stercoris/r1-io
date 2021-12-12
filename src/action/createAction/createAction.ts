@@ -8,11 +8,11 @@ type ActionCreator = <KeyboardBuilderContext>(
 ) => SimpleActionPayloadCreateFunc;
 
 export const createAction: ActionCreator = (name, action) => {
-  if (Actions.isActionAlreadyExists(name)) {
+  if (Actions.isAlreadyExists(name)) {
     throw new Error(`Action with name "${name}" already exist`);
   }
 
-  Actions.addAction({do: action, name, type: 'SimpleAction'});
+  Actions.add({do: action, name, type: 'SimpleAction'});
 
   return () => ({name});
 };

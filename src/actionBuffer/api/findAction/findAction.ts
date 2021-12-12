@@ -9,7 +9,7 @@ type FindCreator = <InternalContext>(
   actions: FindCreatorProps<InternalContext>
 ) => Find<InternalContext>;
 
-export const findApi: FindCreator =
+export const findActionApi: FindCreator =
   ({actions}) =>
   actionName =>
     actions.find(a => a.name === actionName);

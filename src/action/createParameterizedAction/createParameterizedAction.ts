@@ -18,11 +18,11 @@ export const createParametarizedAction: ParameterizedActionCreator = (
   name,
   action
 ) => {
-  if (Actions.isActionAlreadyExists(name)) {
+  if (Actions.isAlreadyExists(name)) {
     throw new Error(`Action with name "${name}" already exist`);
   }
 
-  Actions.addAction({do: action, name, type: 'ParameterizedAction'});
+  Actions.add({do: action, name, type: 'ParameterizedAction'});
 
   return params => ({name, params});
 };

@@ -16,9 +16,15 @@ export type AddAction = (action: IAction<any, any>) => void;
 
 export type IsActionAlreadyExists = (name: string) => boolean;
 
+export type GetAllAction<InternalContext> = () => IAction<
+  InternalContext,
+  any
+>[];
+
 export interface IActionBuffer<InternalContext> {
   findAndCall: FindAndCall<InternalContext>;
   find: Find<InternalContext>;
-  addAction: AddAction;
-  isActionAlreadyExists: IsActionAlreadyExists;
+  add: AddAction;
+  isAlreadyExists: IsActionAlreadyExists;
+  getAll: GetAllAction<InternalContext>;
 }
