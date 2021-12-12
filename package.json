@@ -7,6 +7,7 @@
     "lint": "yarn eslint",
     "lint-fix": "yarn eslint --fix",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test-coverage": "yarn test --coverage",
     "replacePaths": "tscpaths -p tsconfig.json -s ./src  -o ./dist",
     "transpile": "tsc --project tsconfig.build.json ",
     "build": "yarn transpile && yarn replacePaths",
