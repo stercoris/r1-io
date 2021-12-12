@@ -1,4 +1,5 @@
 import {IAction} from '@Action/iAction';
+import {findApi} from '@ActionBuffer/api/find';
 import {IActionBuffer} from '@ActionBuffer/IActionBuffer';
 import {addActionApi} from './api/addAction';
 import {findAndCallApi} from './api/findAndCall';
@@ -16,8 +17,10 @@ export const createActionBuffer: ActionBufferCreator = (...actions) => {
   const isActionAlreadyExists = isActionAlreadyExistsApi({
     actions: internalActions,
   });
+  const find = findApi({actions: internalActions});
 
   return {
+    find,
     findAndCall,
     addAction,
     isActionAlreadyExists,

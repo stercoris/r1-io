@@ -8,12 +8,17 @@ export type FindAndCall<InternalContext> = (
   params: ContextBundle<InternalContext>
 ) => Promise<ActionResponse>;
 
+export type Find<InternalContext> = (
+  actionName: string
+) => undefined | IAction<InternalContext, any>;
+
 export type AddAction = (action: IAction<any, any>) => void;
 
 export type IsActionAlreadyExists = (name: string) => boolean;
 
 export interface IActionBuffer<InternalContext> {
   findAndCall: FindAndCall<InternalContext>;
+  find: Find<InternalContext>;
   addAction: AddAction;
   isActionAlreadyExists: IsActionAlreadyExists;
 }
