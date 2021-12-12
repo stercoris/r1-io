@@ -1,5 +1,4 @@
-import {Actions} from './actions';
-import {ParameterizedAction} from './iAction';
+import {Actions, ParameterizedAction} from '@Action/index';
 
 export interface ParameterizedActionPayload<T> extends JSX.ActionPayload {
   name: string;

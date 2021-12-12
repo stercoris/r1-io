@@ -1,4 +1,4 @@
-export * from './actions';
-export * from './createAction';
-export * from './createParameterizedAction';
+export * from './action/actions';
+export * from './createAction/createAction';
+export * from './createParameterizedAction/createParameterizedAction';
 export * from './iAction';

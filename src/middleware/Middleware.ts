@@ -1,6 +1,6 @@
 import {IRouter} from '@Router/IRouter';
 import {IMiddleware} from '@Middleware/IMiddleware';
-import {Actions} from '@Action/actions';
+import {Actions} from '@Action/action/actions';
 import {createMiddlewareConfigurator} from './configureMiddleware/configureMiddleware';
 
 type MiddlewareCreator = <

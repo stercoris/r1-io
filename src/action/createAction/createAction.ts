@@ -1,5 +1,4 @@
-import {SimpleAction} from '@Action/iAction';
-import {Actions} from './actions';
+import {Actions, SimpleAction} from '@Action/index';
 
 export type SimpleActionPayloadCreateFunc = () => JSX.ActionPayload;
 
