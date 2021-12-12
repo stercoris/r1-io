@@ -26,6 +26,5 @@
       "@Root": ["index"]
     }
   },
-  "include": ["src"],
-  "exclude": ["**/*.spec.ts", "**/*.test.ts"]
+  "include": ["src"]
 }

@@ -6,9 +6,9 @@
   "scripts": {
     "lint": "yarn eslint",
     "lint-fix": "yarn eslint --fix",
-    "test": "jest",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "replacePaths": "tscpaths -p tsconfig.json -s ./src  -o ./dist",
-    "transpile": "tsc --project tsconfig.json ",
+    "transpile": "tsc --project tsconfig.build.json ",
     "build": "yarn transpile && yarn replacePaths",
     "prepare": "yarn build"
   },
@@ -19,9 +19,14 @@
     "url": "https://github.com/stercoris/r1-io"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
     "@types/jest": "^27.0.3",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
+    "babel-jest": "^27.4.4",
+    "babel-plugin-tsconfig-paths": "^1.0.3-rc.1",
     "eslint": "^7.32.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
