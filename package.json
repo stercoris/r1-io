@@ -11,7 +11,7 @@
     "replacePaths": "tscpaths -p tsconfig.json -s ./src  -o ./dist",
     "transpile": "tsc --project tsconfig.build.json ",
     "build": "yarn transpile && yarn replacePaths",
-    "prepare": "yarn build"
+    "prepare": "husky install & yarn build"
   },
   "author": "Dmitriy Rodin",
   "license": "GPL-3.0-or-later",
@@ -33,6 +33,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.0",
+    "husky": "^7.0.4",
     "jest": "^27.4.4",
     "prettier": "^2.4.1",
     "ts-node": "^10.4.0",
