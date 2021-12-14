@@ -8,7 +8,7 @@ export * from '@Types/global';
 
 const R1IO = {
   createElement: Factory.createElement,
-  Fragment: ({children}: {children: Factory.R1Node[]}) =>
+  Fragment: ({children}: {children: any}) =>
     Factory.createElement('functional', null, ...children),
 };
 

@@ -43,11 +43,11 @@ declare global {
       // Added to rows fragments array support
       | Promise<R1IO.ReactElement<Button>>[];
 
-    type RowPayload = ButtonProps[];
+    type RowProps = {};
     // #endregion
 
     // #region Menu Typization
-    type MenuPayload = RowPayload[];
+    type MenuProps = {};
     // #endregion
 
     interface IntrinsicElements {

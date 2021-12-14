@@ -1,15 +1,21 @@
-import {rowToButtonArrayConverter} from '@BuildVkKeyboard/rowConverter/rowConverter';
-import {R1Node} from '@Factory/factory';
+import {
+  Row,
+  rowToButtonArrayConverter,
+} from '@BuildVkKeyboard/rowConverter/rowConverter';
 import {Keyboard, KeyboardBuilder} from 'vk-io';
 
+export type Menu = {
+  type: 'menu';
+  props: JSX.MenuProps;
+  content: Row[];
+};
+
 export const menuToVkKeyboardBuilderConverter = (
-  node: R1Node
+  menu: Menu
 ): KeyboardBuilder => {
-  if (node.type !== 'menu') {
+  if (menu.type !== 'menu') {
     throw new Error('Only menu should be parsed to vk-io keyboard');
   }
 
-  const rows = node.content as R1Node[];
-
-  return Keyboard.keyboard(rows.map(rowToButtonArrayConverter));
+  return Keyboard.keyboard(menu.content.map(rowToButtonArrayConverter));
 };

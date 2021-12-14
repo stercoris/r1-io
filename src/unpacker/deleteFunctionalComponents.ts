@@ -1,4 +1,7 @@
-import {R1Node} from '@Factory/factory';
+type R1Node = {
+  type: string;
+  content: R1Node[];
+};
 
 const getContentWithoutFunctional = (content: R1Node[]): R1Node[] => {
   const withoutFuntional = content.reduce(
