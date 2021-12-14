@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
 
-import {ButtonColor} from 'vk-io';
+import {ButtonColor, ButtonColorUnion} from 'vk-io';
 
 declare global {
   namespace JSX {
@@ -16,40 +16,44 @@ declare global {
 
     type IntrinsicAttributes = R1IO.Attributes;
 
+    // #region Buttons Typization
+    type Colors = ButtonColor | ButtonColorUnion;
+
     type ActionPayload = {
       name: string;
       params?: Object;
     };
-
-    type Colors =
-      | ButtonColor
-      | 'secondary'
-      | 'primary'
-      | 'negative'
-      | 'positive';
-    interface ButtonProps {
-      label: string;
-      color?: Colors;
-      onClick?: ActionPayload;
-    }
 
     interface ButtonPayload {
       label: string;
       color?: Colors;
       payload?: ActionPayload;
     }
-
-    type RowPayload = ButtonPayload[];
-    type MenuPayload = RowPayload[];
+    interface ButtonProps {
+      label: string;
+      color?: Colors;
+      onClick?: ActionPayload;
+    }
 
     type Button =
       | Promise<R1IO.ReactElement<ButtonPayload>>
       // Added to buttons fragments array support
       | Promise<R1IO.ReactElement<ButtonPayload>>[];
+
+    // #endregion
+
+    // #region Rows Typization
     type Row =
       | Promise<R1IO.ReactElement<Button>>
       // Added to rows fragments array support
       | Promise<R1IO.ReactElement<Button>>[];
+
+    type RowPayload = ButtonPayload[];
+    // #endregion
+
+    // #region Menu Typization
+    type MenuPayload = RowPayload[];
+    // #endregion
 
     interface IntrinsicElements {
       button: Omit<ButtonProps, 'label'> &
