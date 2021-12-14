@@ -1,5 +1,9 @@
 import {R1Node} from '@Factory/factory';
-import {IKeyboardProxyButton, Keyboard} from 'vk-io';
+import {
+  IKeyboardProxyButton,
+  IKeyboardTextButtonOptions,
+  Keyboard,
+} from 'vk-io';
 
 export const buttonToVkIoButtonConverter = (
   node: R1Node
@@ -9,5 +13,14 @@ export const buttonToVkIoButtonConverter = (
       "Only objects with type 'button' should be parsed to VKButton"
     );
   }
-  return Keyboard.textButton(node.content as JSX.ButtonPayload);
+
+  const content = node.content;
+
+  const textButtonProps: IKeyboardTextButtonOptions = {
+    label: content.label,
+    color: content.color,
+    payload: content.onClick,
+  };
+
+  return Keyboard.textButton(textButtonProps);
 };

@@ -13,10 +13,10 @@ export type CreateButton = (
 export const parseButton: CreateButton = (_, props, ...children) => {
   const labelOrChild = props?.label ?? children.join('');
 
-  const button: JSX.ButtonPayload = {
+  const button: JSX.ButtonProps = {
     label: getFlatChilren(labelOrChild),
     color: props?.color ?? ButtonColor.PRIMARY,
-    payload: props?.onClick,
+    onClick: props?.onClick,
   };
 
   return {type: 'button', content: button};

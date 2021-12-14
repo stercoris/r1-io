@@ -24,11 +24,6 @@ declare global {
       params?: Object;
     };
 
-    interface ButtonPayload {
-      label: string;
-      color?: Colors;
-      payload?: ActionPayload;
-    }
     interface ButtonProps {
       label: string;
       color?: Colors;
@@ -36,9 +31,9 @@ declare global {
     }
 
     type Button =
-      | Promise<R1IO.ReactElement<ButtonPayload>>
+      | Promise<R1IO.ReactElement<ButtonProps>>
       // Added to buttons fragments array support
-      | Promise<R1IO.ReactElement<ButtonPayload>>[];
+      | Promise<R1IO.ReactElement<ButtonProps>>[];
 
     // #endregion
 
@@ -48,7 +43,7 @@ declare global {
       // Added to rows fragments array support
       | Promise<R1IO.ReactElement<Button>>[];
 
-    type RowPayload = ButtonPayload[];
+    type RowPayload = ButtonProps[];
     // #endregion
 
     // #region Menu Typization
