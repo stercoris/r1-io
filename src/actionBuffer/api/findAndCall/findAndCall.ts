@@ -14,9 +14,9 @@ export const findAndCallApi: FindAndCallCreator =
   async (payload, {context, builderContext}) => {
     if (!payload) return 'PayloadNotFound';
 
-    const {name, params} = payload;
+    const {actionName, params} = payload;
 
-    const action = actions.find(a => a.name === name);
+    const action = actions.find(a => a.actionName === actionName);
 
     if (!action) return 'ActionNotFound';
 

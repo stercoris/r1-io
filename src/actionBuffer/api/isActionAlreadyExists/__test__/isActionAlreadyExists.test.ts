@@ -5,7 +5,7 @@ describe('Is Action Already Exists API', () => {
   const ACTION_TEST_NAME = 'simple test name';
 
   const actions: IAction<any, any>[] = [
-    {do: () => {}, name: ACTION_TEST_NAME, type: 'SimpleAction'},
+    {do: () => {}, actionName: ACTION_TEST_NAME, type: 'SimpleAction'},
   ];
 
   const isActionAlreadyExists = isActionAlreadyExistsApi({actions});

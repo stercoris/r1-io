@@ -6,7 +6,7 @@ describe('Find Action API', () => {
   const TEST_FN = jest.fn();
 
   const actions: IAction<any, any>[] = [
-    {do: TEST_FN, name: ACTION_TEST_NAME, type: 'SimpleAction'},
+    {do: TEST_FN, actionName: ACTION_TEST_NAME, type: 'SimpleAction'},
   ];
   const findAction = findActionApi({actions});
 
@@ -17,7 +17,7 @@ describe('Find Action API', () => {
       throw new Error('Action not found');
     }
 
-    expect(action.name).toBe(ACTION_TEST_NAME);
+    expect(action.actionName).toBe(ACTION_TEST_NAME);
     expect(action.type).toBe('SimpleAction');
     expect(action.do).toBe(TEST_FN);
   });

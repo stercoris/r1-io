@@ -29,7 +29,7 @@ describe('Create Parameterized Action', () => {
   const actionPayload = testAction(actionProps);
 
   test('Action constructor should have correct props', async () => {
-    expect(actionPayload.name).toBe('test action name');
+    expect(actionPayload.actionName).toBe('test action name');
     expect(actionPayload.params).toMatchObject(actionProps);
   });
 
@@ -45,7 +45,7 @@ describe('Create Parameterized Action', () => {
     }
 
     expect(actionExecutor.type).toBe('ParameterizedAction');
-    expect(actionExecutor.name).toBe(TEST_ACTION_NAME);
+    expect(actionExecutor.actionName).toBe(TEST_ACTION_NAME);
 
     expect(typeof actionExecutor.do === typeof Function).toBe(true);
 

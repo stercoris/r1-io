@@ -9,7 +9,7 @@ describe('Find And Call API', () => {
   const actions: IAction<any, any>[] = [
     {
       do: TEST_FN,
-      name: ACTION_TEST_NAME,
+      actionName: ACTION_TEST_NAME,
       type: 'ParameterizedAction',
     },
   ];
@@ -22,7 +22,7 @@ describe('Find And Call API', () => {
     const params = {test: 3};
 
     const action = await findAndCallAction(
-      {name: ACTION_TEST_NAME, params},
+      {actionName: ACTION_TEST_NAME, params},
       {builderContext, context}
     );
 
@@ -33,7 +33,7 @@ describe('Find And Call API', () => {
 
   test('`ActionNotFound`', async () => {
     const action = await findAndCallAction(
-      {name: 'RANDOM NAME'},
+      {actionName: 'RANDOM NAME'},
       {builderContext: {}, context: {} as MessageContext}
     );
 

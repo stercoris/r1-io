@@ -12,4 +12,4 @@ type IsActionAlreadyExistsBuilder = <InternalContext>(
 export const isActionAlreadyExistsApi: IsActionAlreadyExistsBuilder =
   ({actions}) =>
   name =>
-    !!actions.find(a => a.name === name);
+    !!actions.find(a => a.actionName === name);

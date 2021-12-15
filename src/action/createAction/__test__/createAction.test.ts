@@ -19,7 +19,7 @@ describe('Create Simple Action', () => {
   const actionPayload = testAction();
 
   test('Action constructor should have correct props', async () => {
-    expect(actionPayload.name).toBe('test action name');
+    expect(actionPayload.actionName).toBe('test action name');
   });
 
   test('Action should be in ActionsBuffer', () => {
@@ -34,7 +34,7 @@ describe('Create Simple Action', () => {
     }
 
     expect(actionExecutor.type).toBe('SimpleAction');
-    expect(actionExecutor.name).toBe(TEST_ACTION_NAME);
+    expect(actionExecutor.actionName).toBe(TEST_ACTION_NAME);
 
     expect(typeof actionExecutor.do === typeof Function).toBe(true);
 

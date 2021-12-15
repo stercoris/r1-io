@@ -16,11 +16,11 @@ export type SimpleAction<I> = (
 export type IAction<KeyboardBuilderContext, T> =
   | {
       do: ParameterizedAction<T, KeyboardBuilderContext>;
-      name: string;
+      actionName: string;
       type: 'ParameterizedAction';
     }
   | {
       do: SimpleAction<KeyboardBuilderContext>;
-      name: string;
+      actionName: string;
       type: 'SimpleAction';
     };

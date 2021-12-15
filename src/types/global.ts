@@ -20,7 +20,7 @@ declare global {
     type Colors = ButtonColor | ButtonColorUnion;
 
     type ActionPayload = {
-      name: string;
+      actionName: string;
       params?: Object;
     };
 

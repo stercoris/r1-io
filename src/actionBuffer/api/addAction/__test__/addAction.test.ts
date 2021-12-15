@@ -10,12 +10,16 @@ describe('Add Action API', () => {
 
   test('`add` should behave correctly', () => {
     expect(actions.length).toBe(0);
-    addAction({do: TEST_FN, name: ACTION_TEST_NAME, type: 'SimpleAction'});
+    addAction({
+      do: TEST_FN,
+      actionName: ACTION_TEST_NAME,
+      type: 'SimpleAction',
+    });
     expect(actions.length).toBe(1);
 
     const [action] = actions;
 
-    expect(action.name).toBe(ACTION_TEST_NAME);
+    expect(action.actionName).toBe(ACTION_TEST_NAME);
     expect(action.type).toBe('SimpleAction');
     expect(action.do).toBe(TEST_FN);
   });

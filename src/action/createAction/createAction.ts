@@ -12,7 +12,7 @@ export const createAction: ActionCreator = (name, action) => {
     throw new Error(`Action with name "${name}" already exist`);
   }
 
-  Actions.add({do: action, name, type: 'SimpleAction'});
+  Actions.add({do: action, actionName: name, type: 'SimpleAction'});
 
-  return () => ({name});
+  return () => ({actionName: name});
 };

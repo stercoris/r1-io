@@ -12,4 +12,4 @@ type FindCreator = <InternalContext>(
 export const findActionApi: FindCreator =
   ({actions}) =>
   actionName =>
-    actions.find(a => a.name === actionName);
+    actions.find(a => a.actionName === actionName);
