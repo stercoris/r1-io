@@ -5,11 +5,10 @@ export type FunctionalParser = (
 ) => any;
 
 export const parseFunctional: FunctionalParser = (func, props, ...children) => {
-  const normChildren =
-    typeof children[0] === 'string' ? children.join('') : children;
+  const normChildren = children.length === 1 ? children[0] : children;
 
   const content =
-    func instanceof Function
+    typeof func === 'function'
       ? func({children: normChildren, ...props})
       : children;
 
