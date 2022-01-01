@@ -5,7 +5,7 @@ import {ButtonColor, ButtonColorUnion} from 'vk-io';
 
 declare global {
   namespace JSX {
-    type Element = Promise<R1IO.ReactElement<any, any>>;
+    interface Element extends Promise<R1IO.ReactElement<any, any>> {}
 
     interface ElementAttributesProperty {
       props: {};
