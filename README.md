@@ -3,11 +3,23 @@
 </div>
 <hr>
 <p align="center">
-<a href="https://www.npmjs.com/package/r1-io"><img src="https://img.shields.io/npm/v/r1-io.svg?style=for-the-badge" alt="NPM version"></a>
-<a href="https://www.npmjs.com/package/r1-io"><img src="https://img.shields.io/npm/dt/r1-io.svg?style=for-the-badge" alt="NPM downloads"></a>
-<img alt="GitHub" src="https://img.shields.io/github/license/stercoris/r1-io.svg?style=for-the-badge">
-<img alt="GitHub package.json dependency version (prod)" src="https://img.shields.io/github/package-json/dependency-version/stercoris/r1-io/vk-io?style=for-the-badge">
-
+<a href="https://www.npmjs.com/package/r1-io">
+	<img 
+		src="https://img.shields.io/npm/v/r1-io.svg?style=for-the-badge" 
+		alt="NPM version">
+</a>
+<a href="https://www.npmjs.com/package/r1-io">
+	<img 
+		src="https://img.shields.io/npm/dt/r1-io.svg?style=for-the-badge" 
+		alt="NPM downloads">
+</a>
+<img
+	src="https://img.shields.io/github/license/stercoris/r1-io.svg?style=for-the-badge"
+	alt="GitHub">
+<a href="https://www.npmjs.com/package/vk-io"> 
+	<img alt="vk-io version(4.4.0)"
+		src="https://img.shields.io/github/package-json/dependency-version/stercoris/r1-io/vk-io?style=for-the-badge">
+</a>
 </p>
 
 <div align="center">
