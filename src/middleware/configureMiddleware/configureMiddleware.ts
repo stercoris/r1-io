@@ -1,8 +1,8 @@
-import {IActionBuffer} from '@ActionBuffer/IActionBuffer';
+import {ActionsBuffer} from '@ActionBuffer/actionsBuffer';
 import {asyncAttachToContext} from '@Middleware/contextExtensions/paramsMiddleware';
 import {customSend} from '@Middleware/contextExtensions/send/send';
 import {IMiddleware} from '@Middleware/IMiddleware';
-import {IRouter} from '@Router/IRouter';
+import {BaseRouter, IRouter} from '@Router/IRouter';
 
 interface MiddlewareConfiguratorProps<
   JSXComponentProps,
@@ -10,7 +10,7 @@ interface MiddlewareConfiguratorProps<
 > {
   getCurrentMenu: IRouter<JSXComponentProps>;
   applyUserMiddleware: IMiddleware<OutputContext>;
-  actions: IActionBuffer<any>;
+  actions: ActionsBuffer<any>;
 }
 
 type MiddlewareConfigurator = <
@@ -25,43 +25,48 @@ export const createMiddlewareConfigurator: MiddlewareConfigurator =
   async (context, next) => {
     const builderContext = await applyUserMiddleware(context, next);
 
+    if (!builderContext) return;
+
     const findAndCallAction = (payload: JSX.ActionPayload) =>
       actions.findAndCall(payload, {builderContext, context});
 
-    const findAndCallAllActions = (actions: JSX.ActionPayload[]) =>
-      Promise.all(actions.map(findAndCallAction));
-
-    if (!builderContext) return;
-
-    const getCurrentMenuAndBuildKeyboard = () =>
-      getCurrentMenu(builderContext).build(builderContext);
+    const findAndCallAllActions = (payload: JSX.ActionPayload[]) =>
+      actions.findAndCallBundle(payload, {builderContext, context});
 
     const customSendBuilded = customSend({
-      buildKeyboard: getCurrentMenuAndBuildKeyboard,
+      buildKeyboard: () => getCurrentMenu(builderContext).build(builderContext)
     });
 
     asyncAttachToContext('send', customSendBuilded, context);
 
-    const beforeMenu = getCurrentMenu(builderContext);
-
+    const currentMenu = getCurrentMenu(builderContext);
     const actionStatus = await findAndCallAction(context.messagePayload);
+    const afterActionMenu = getCurrentMenu(builderContext);
 
-    const afterMenu = getCurrentMenu(builderContext);
-
-    if (beforeMenu !== afterMenu) {
-      if (beforeMenu.onMenuExit?.length) {
-        await findAndCallAllActions(beforeMenu.onMenuExit);
+    const callMenuTransitionActions = async (
+      oldMenu: BaseRouter,
+      newMenu: BaseRouter
+    ): Promise<BaseRouter> => {
+      if (oldMenu === newMenu) {
+        return oldMenu;
       }
-
-      if (afterMenu.onMenuEntering?.length) {
-        await findAndCallAllActions(afterMenu.onMenuEntering);
+      if (currentMenu.onMenuExit?.length) {
+        await findAndCallAllActions(currentMenu.onMenuExit);
       }
-    }
+      if (afterActionMenu.onMenuEntering?.length) {
+        await findAndCallAllActions(afterActionMenu.onMenuEntering);
+      }
+      return getCurrentMenu(builderContext);
+    };
+
+    const menuAfterNavigationActions = await callMenuTransitionActions(
+      currentMenu,
+      afterActionMenu
+    );
 
     if (actionStatus === 'PayloadNotFound') {
-      const {fallbackActions} = getCurrentMenu(builderContext);
-      if (fallbackActions?.length) {
-        await findAndCallAllActions(fallbackActions);
+      if (menuAfterNavigationActions.fallbackActions?.length) {
+        await findAndCallAllActions(menuAfterNavigationActions.fallbackActions);
       }
     }
 

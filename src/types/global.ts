@@ -5,7 +5,7 @@ import {ButtonColor, ButtonColorUnion} from 'vk-io';
 
 declare global {
   namespace JSX {
-    interface Element extends Promise<R1IO.ReactElement<any, any>> {}
+    interface Element extends Promise<R1IO.R1IOElement<any, any>> {}
 
     interface ElementAttributesProperty {
       props: {};
@@ -29,17 +29,17 @@ declare global {
     }
 
     type Button =
-      | Promise<R1IO.ReactElement<ButtonProps>>
+      | Promise<R1IO.R1IOElement<ButtonProps>>
       // Added to buttons fragments array support
-      | Promise<R1IO.ReactElement<ButtonProps>>[];
+      | Promise<R1IO.R1IOElement<ButtonProps>>[];
 
     // #endregion
 
     // #region Rows Typization
     type Row =
-      | Promise<R1IO.ReactElement<Button>>
+      | Promise<R1IO.R1IOElement<Button>>
       // Added to rows fragments array support
-      | Promise<R1IO.ReactElement<Button>>[];
+      | Promise<R1IO.R1IOElement<Button>>[];
 
     type RowProps = {};
     // #endregion
@@ -57,27 +57,27 @@ declare global {
   }
 
   namespace R1IO {
-    interface ReactElement<
+    interface R1IOElement<
       P = any,
-      T extends string | ((props: any) => ReactElement<any, any> | null) =
+      T extends string | ((props: any) => R1IOElement<any, any> | null) =
         | string
-        | ((props: any) => ReactElement<any, any> | null)
+        | ((props: any) => R1IOElement<any, any> | null)
     > {
       type: T;
       props: P;
     }
 
     type ChildText = string | number;
-    type R1IOChild = ReactElement | ReactElement[] | ChildText;
+    type R1IOChild = R1IOElement | R1IOElement[] | ChildText;
 
-    type ReactNodeArray = Array<ReactNode>;
-    type ReactFragment = {} | ReactNodeArray;
-    type ReactNode = R1IOChild | ReactFragment | boolean | null | undefined;
+    type R1IONodeArray = Array<R1IONode>;
+    type R1IOFragment = {} | R1IONodeArray;
+    type R1IONode = R1IOChild | R1IOFragment | boolean | null | undefined;
 
-    type PropsWithChildren<P> = P & {children?: ReactNode | undefined};
+    type PropsWithChildren<P> = P & {children?: R1IONode | undefined};
 
     interface FC<P = {}> {
-      (props: PropsWithChildren<P>): Promise<ReactElement<any, any>> | null;
+      (props: PropsWithChildren<P>): Promise<R1IOElement<any, any>> | null;
     }
   }
 }

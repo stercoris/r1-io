@@ -1,2 +1,1 @@
-export * from './ActionBuffer';
-export * from './IActionBuffer';
+export * from './actionsBuffer';
