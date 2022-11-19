@@ -5,7 +5,7 @@ import {addActionApi} from './api/addAction/addAction';
 import {findAndCallApi} from './api/findAndCall/findAndCall';
 import {isActionAlreadyExistsApi} from './api/isActionAlreadyExists/isActionAlreadyExists';
 
-type ActionBufferCreator = <InternalContext>(
+type ActionBufferCreator = <InternalContext extends {}>(
   ...actions: IAction<InternalContext, any>[]
 ) => IActionBuffer<InternalContext>;
 
@@ -15,7 +15,7 @@ export const createActionBuffer: ActionBufferCreator = (...actions) => {
   const findAndCall = findAndCallApi({actions: internalActions});
   const addAction = addActionApi({actions: internalActions});
   const isActionAlreadyExists = isActionAlreadyExistsApi({
-    actions: internalActions,
+    actions: internalActions
   });
   const find = findActionApi({actions: internalActions});
 
@@ -24,6 +24,6 @@ export const createActionBuffer: ActionBufferCreator = (...actions) => {
     findAndCall,
     add: addAction,
     isAlreadyExists: isActionAlreadyExists,
-    getAll: () => internalActions,
+    getAll: () => internalActions
   };
 };

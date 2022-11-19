@@ -5,7 +5,7 @@ interface FindAndCallCreatorProps<InternalContext> {
   actions: IAction<InternalContext, any>[];
 }
 
-type FindAndCallCreator = <InternalContext>(
+type FindAndCallCreator = <InternalContext extends {}>(
   actions: FindAndCallCreatorProps<InternalContext>
 ) => FindAndCall<InternalContext>;
 

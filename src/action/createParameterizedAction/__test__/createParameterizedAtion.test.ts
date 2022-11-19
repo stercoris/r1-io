@@ -12,7 +12,7 @@ interface ActionProps {
 const actionProps: ActionProps = {
   friend: true,
   hello: 'some string',
-  my: 2,
+  my: 2
 };
 
 interface GlobalContext {

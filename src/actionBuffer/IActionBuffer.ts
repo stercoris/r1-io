@@ -3,7 +3,7 @@ import {ContextBundle} from '@Middleware/IContextBundle';
 
 type ActionResponse = 'ActionNotFound' | 'ActionExecuted' | 'PayloadNotFound';
 
-export type FindAndCall<InternalContext> = (
+export type FindAndCall<InternalContext extends {}> = (
   payload: JSX.ActionPayload,
   params: ContextBundle<InternalContext>
 ) => Promise<ActionResponse>;
@@ -21,7 +21,7 @@ export type GetAllAction<InternalContext> = () => IAction<
   any
 >[];
 
-export interface IActionBuffer<InternalContext> {
+export interface IActionBuffer<InternalContext extends {}> {
   findAndCall: FindAndCall<InternalContext>;
   find: Find<InternalContext>;
   add: AddAction;

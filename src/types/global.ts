@@ -14,8 +14,6 @@ declare global {
       children: {};
     }
 
-    type IntrinsicAttributes = R1IO.Attributes;
-
     // #region Buttons Typization
     type Colors = ButtonColor | ButtonColorUnion;
 
@@ -52,54 +50,35 @@ declare global {
 
     interface IntrinsicElements {
       button: Omit<ButtonProps, 'label'> &
-        ({label: string} | {children: string[] | string});
+        ({label: string} | {children: string});
       row: {children: Button | Button[]};
       menu: {children: Row | Row[]};
     }
   }
 
   namespace R1IO {
-    type JSXElementConstructor<P> = (props: P) => ReactElement<any, any> | null;
-
     interface ReactElement<
       P = any,
-      T extends string | JSXElementConstructor<any> =
+      T extends string | ((props: any) => ReactElement<any, any> | null) =
         | string
-        | JSXElementConstructor<any>
+        | ((props: any) => ReactElement<any, any> | null)
     > {
       type: T;
       props: P;
-      key: Key | null;
     }
 
-    type FC<P = {}> = FunctionComponent<P>;
-
-    type ReactText = string | number;
-    type ReactChild = ReactElement | ReactElement[] | ReactText;
-
-    interface ReactPortal extends ReactElement {
-      key: Key | null;
-      children: ReactNode;
-    }
+    type ChildText = string | number;
+    type R1IOChild = ReactElement | ReactElement[] | ChildText;
 
     type ReactNodeArray = Array<ReactNode>;
     type ReactFragment = {} | ReactNodeArray;
-    type ReactNode =
-      | ReactChild
-      | ReactFragment
-      | ReactPortal
-      | boolean
-      | null
-      | undefined;
+    type ReactNode = R1IOChild | ReactFragment | boolean | null | undefined;
 
     type PropsWithChildren<P> = P & {children?: ReactNode | undefined};
 
-    interface FunctionComponent<P = {}> {
+    interface FC<P = {}> {
       (props: PropsWithChildren<P>): Promise<ReactElement<any, any>> | null;
     }
-
-    type Key = string | number;
-    type Attributes = {key?: Key | null | undefined};
   }
 }
 
