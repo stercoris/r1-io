@@ -1,8 +1,6 @@
-import {IRouter} from '@Router/IRouter';
-import {
-  BuildMenuMap,
-  configureMenuBuilders,
-} from './helpers/configurations/addBuildersToRouterMap';
+import type {IRouter} from '@Router/IRouter';
+import type {BuildMenuMap} from './helpers/configurations/addBuildersToRouterMap';
+import {configureMenuBuilders} from './helpers/configurations/addBuildersToRouterMap';
 import {getCurrentMenuFabric} from './helpers/api/getCurrentMenu';
 
 type RouterCreator = <C extends {}, E extends string>(

@@ -1,7 +1,5 @@
-import {
-  Menu,
-  menuToVkKeyboardBuilderConverter,
-} from '@BuildVkKeyboard/menuConverter/menuConverter';
+import type {Menu} from '@BuildVkKeyboard/menuConverter/menuConverter';
+import {menuToVkKeyboardBuilderConverter} from '@BuildVkKeyboard/menuConverter/menuConverter';
 import {deleteFunctionalComponents} from '@Unpacker/deleteFunctionalComponents';
 import {promiseDeepResolve} from 'promise-deep-resolve-ts';
 import 'vk-io';

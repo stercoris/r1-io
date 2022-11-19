@@ -1,4 +1,4 @@
-import {Router, RouterBuilder} from '@Router/IRouter';
+import type {Router, RouterBuilder} from '@Router/IRouter';
 import {buildFromJSXToVKKeyboard} from './buildFromJSXToVKKeyboard';
 import 'vk-io';
 

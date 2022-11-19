@@ -1,4 +1,5 @@
-import {Actions, ParameterizedAction} from '@Action/index';
+import type {ParameterizedAction} from '@Action/index';
+import {Actions} from '@Action/index';
 
 export interface ParameterizedActionPayload<T extends Object>
   extends JSX.ActionPayload {

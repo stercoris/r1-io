@@ -1,8 +1,8 @@
-import {ActionsBuffer} from '@ActionBuffer/actionsBuffer';
+import type {ActionsBuffer} from '@ActionBuffer/actionsBuffer';
 import {asyncAttachToContext} from '@Middleware/contextExtensions/paramsMiddleware';
 import {customSend} from '@Middleware/contextExtensions/send/send';
-import {IMiddleware} from '@Middleware/IMiddleware';
-import {BaseRouter, IRouter} from '@Router/IRouter';
+import type {IMiddleware} from '@Middleware/IMiddleware';
+import type {BaseRouter, IRouter} from '@Router/IRouter';
 
 interface MiddlewareConfiguratorProps<
   JSXComponentProps,
@@ -34,7 +34,7 @@ export const createMiddlewareConfigurator: MiddlewareConfigurator =
       actions.findAndCallBundle(payload, {builderContext, context});
 
     const customSendBuilded = customSend({
-      buildKeyboard: () => getCurrentMenu(builderContext).build(builderContext)
+      buildKeyboard: () => getCurrentMenu(builderContext).build(builderContext),
     });
 
     asyncAttachToContext('send', customSendBuilded, context);

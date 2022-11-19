@@ -1,5 +1,5 @@
-import {IMessageContextSendOptions, KeyboardBuilder} from 'vk-io';
-import {ParamsMiddleware} from '../IParamsMiddleware';
+import type {IMessageContextSendOptions, KeyboardBuilder} from 'vk-io';
+import type {ParamsMiddleware} from '../IParamsMiddleware';
 
 interface CustomSendProps {
   buildKeyboard: () => Promise<KeyboardBuilder>;

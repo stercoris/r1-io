@@ -1,5 +1,5 @@
 import {Actions, createAction, createParametarizedAction} from '@Root';
-import {MessageContext} from 'vk-io';
+import type {MessageContext} from 'vk-io';
 
 const TEST_ACTION_NAME = 'test action name';
 
@@ -12,7 +12,7 @@ interface ActionProps {
 const actionProps: ActionProps = {
   friend: true,
   hello: 'some string',
-  my: 2
+  my: 2,
 };
 
 interface GlobalContext {

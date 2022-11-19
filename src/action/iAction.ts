@@ -1,4 +1,4 @@
-import {MessageContext} from 'vk-io';
+import type {MessageContext} from 'vk-io';
 
 type MaybePromise = Promise<unknown> | unknown;
 

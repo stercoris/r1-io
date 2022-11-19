@@ -1,5 +1,5 @@
-import {MessageContext} from 'vk-io';
-import {
+import type {MessageContext} from 'vk-io';
+import type {
   AsyncParamsMiddlewareFunc,
   SuncParamsMiddlewareFunc,
 } from './IParamsMiddleware';

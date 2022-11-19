@@ -1,8 +1,7 @@
-import {
-  Row,
-  rowToButtonArrayConverter,
-} from '@BuildVkKeyboard/rowConverter/rowConverter';
-import {Keyboard, KeyboardBuilder} from 'vk-io';
+import type {Row} from '@BuildVkKeyboard/rowConverter/rowConverter';
+import {rowToButtonArrayConverter} from '@BuildVkKeyboard/rowConverter/rowConverter';
+import type {KeyboardBuilder} from 'vk-io';
+import {Keyboard} from 'vk-io';
 
 export type Menu = {
   type: 'menu';

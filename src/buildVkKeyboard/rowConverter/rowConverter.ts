@@ -1,8 +1,6 @@
-import {
-  Button,
-  buttonToVkIoButtonConverter,
-} from '@BuildVkKeyboard/buttonConverter/buttonConverter';
-import {IKeyboardProxyButton} from 'vk-io';
+import type {Button} from '@BuildVkKeyboard/buttonConverter/buttonConverter';
+import {buttonToVkIoButtonConverter} from '@BuildVkKeyboard/buttonConverter/buttonConverter';
+import type {IKeyboardProxyButton} from 'vk-io';
 
 export type Row = {
   type: 'row';

@@ -1,5 +1,6 @@
-import {Actions, SimpleAction} from '@Root';
-import {MessageContext} from 'vk-io';
+import type {SimpleAction} from '@Root';
+import {Actions} from '@Root';
+import type {MessageContext} from 'vk-io';
 import {createAction} from '../createAction';
 
 const TEST_ACTION_NAME = 'test action name';

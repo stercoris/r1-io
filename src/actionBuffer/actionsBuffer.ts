@@ -1,6 +1,5 @@
-/* eslint-disable require-jsdoc */
-import {IAction} from '@Action/iAction';
-import {ContextBundle} from '@Middleware/IContextBundle';
+import type {IAction} from '@Action/iAction';
+import type {ContextBundle} from '@Middleware/IContextBundle';
 
 type ActionResponse = 'ActionNotFound' | 'ActionExecuted' | 'PayloadNotFound';
 

@@ -1,4 +1,4 @@
-import {MessageContext} from 'vk-io';
+import type {MessageContext} from 'vk-io';
 
 export interface ContextBundle<C extends {}> {
   context: MessageContext;

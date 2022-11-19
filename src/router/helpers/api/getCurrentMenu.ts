@@ -1,4 +1,4 @@
-import {RouterMenuMap} from '../configurations/addBuildersToRouterMap';
+import type {RouterMenuMap} from '../configurations/addBuildersToRouterMap';
 
 interface GetCurrentMenuProps<C extends {}, E extends string> {
   menus: RouterMenuMap<C, E>;

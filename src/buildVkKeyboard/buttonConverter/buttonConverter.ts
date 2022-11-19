@@ -1,8 +1,5 @@
-import {
-  IKeyboardProxyButton,
-  IKeyboardTextButtonOptions,
-  Keyboard,
-} from 'vk-io';
+import type {IKeyboardProxyButton, IKeyboardTextButtonOptions} from 'vk-io';
+import {Keyboard} from 'vk-io';
 
 export type Button = {
   type: 'button';

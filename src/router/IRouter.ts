@@ -1,4 +1,4 @@
-import {KeyboardBuilder} from 'vk-io';
+import type {KeyboardBuilder} from 'vk-io';
 
 export type BuildKeyboard<C> = (context: C) => Promise<KeyboardBuilder>;
 

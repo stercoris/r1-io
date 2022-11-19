@@ -1,11 +1,11 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
 
-import {ButtonColor, ButtonColorUnion} from 'vk-io';
+import type {ButtonColor, ButtonColorUnion} from 'vk-io';
 
 declare global {
   namespace JSX {
-    interface Element extends Promise<R1IO.R1IOElement<any, any>> {}
+    type Element = Promise<R1IO.R1IOElement<any, any>>;
 
     interface ElementAttributesProperty {
       props: {};
