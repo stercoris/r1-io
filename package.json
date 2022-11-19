@@ -5,12 +5,12 @@
   "main": "dist/index.js",
   "scripts": {
     "lint": "yarn eslint",
-    "lint-fix": "yarn eslint --fix",
+    "types": "yarn tsc --project ./tsconfig.json --noEmit",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "test-coverage": "yarn test --coverage",
-    "replacePaths": "tscpaths -p tsconfig.json -s ./src  -o ./dist",
-    "transpile": "tsc --project tsconfig.build.json ",
-    "build": "yarn transpile && yarn replacePaths",
+    "build:transpile": "tsc --project tsconfig.build.json",
+    "build:replacePaths": "tsc-alias -p tsconfig.json",
+    "build": "yarn build:transpile && yarn build:replacePaths",
     "prepare": "husky install & yarn build"
   },
   "author": "Dmitriy Rodin",
@@ -37,13 +37,13 @@
     "jest": "^27.4.4",
     "prettier": "^2.4.1",
     "ts-node": "^10.4.0",
-    "tsconfig-paths": "^3.11.0",
-    "tscpaths": "^0.0.9"
+    "tsc-alias": "^1.7.1",
+    "tscpaths": "^0.0.9",
+    "typescript": "^4.9.3"
   },
   "dependencies": {
     "middleware-io": "^2.8.0",
     "promise-deep-resolve-ts": "^1.0.5",
-    "typescript": "4.5.1-rc",
     "vk-io": "^4.4.0"
   },
   "files": [
