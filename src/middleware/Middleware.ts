@@ -1,6 +1,6 @@
 import type {IRouter} from '@Router/IRouter';
 import type {IMiddleware} from '@Middleware/IMiddleware';
-import {Actions} from '@Action/action/actions';
+import {ACTIONS} from '@Action/action/actions';
 import {createMiddlewareConfigurator} from './configureMiddleware/configureMiddleware';
 
 type MiddlewareCreator = <
@@ -16,7 +16,7 @@ export const createMiddleware: MiddlewareCreator = (
   contextWorker
 ) =>
   createMiddlewareConfigurator({
-    actions: Actions,
+    actions: ACTIONS,
     applyUserMiddleware: contextWorker,
     getCurrentMenu,
   });

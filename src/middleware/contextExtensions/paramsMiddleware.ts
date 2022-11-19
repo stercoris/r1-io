@@ -8,7 +8,7 @@ export const asyncAttachToContext = (
   fieldName: string,
   field: AsyncParamsMiddlewareFunc,
   context: MessageContext
-) => {
+): void => {
   const oldFunc = context[fieldName];
   context[fieldName] = async (...args: unknown[]) => {
     const newArgs = await field(...args);
@@ -20,7 +20,7 @@ export const syncAttachToContext = (
   fieldName: string,
   field: SuncParamsMiddlewareFunc,
   context: MessageContext
-) => {
+): void => {
   const oldFunc = context[fieldName];
   context[fieldName] = (...args: unknown[]) => {
     const newArgs = field(...args);

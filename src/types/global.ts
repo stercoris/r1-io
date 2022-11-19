@@ -1,5 +1,4 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-namespace */
 
 import type {ButtonColor, ButtonColorUnion} from 'vk-io';
 

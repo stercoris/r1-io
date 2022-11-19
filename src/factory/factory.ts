@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/require-await */
 import {parseFunctional} from '@Factory/elements/functional/parser';
 
 const createBuilder =

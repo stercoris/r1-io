@@ -4,16 +4,19 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'plugin:import/recommended',
-    'plugin:import/typescript'
+    'plugin:import/typescript',
   ],
   parserOptions: {
     ecmaVersion: 'latest',
     project: ['tsconfig.json'],
-    sourceType: 'module'
+    sourceType: 'module',
   },
   rules: {
+    'require-await': 'off',
+    '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/consistent-type-imports': 'error',
-    'require-await': 'error',
     '@typescript-eslint/await-thenable': 'error',
     '@typescript-eslint/require-await': 'error',
     '@typescript-eslint/no-floating-promises': 'error',
@@ -24,24 +27,24 @@ module.exports = {
       'error',
       {
         selector: 'default',
-        format: ['camelCase']
+        format: ['camelCase'],
       },
       {
         selector: 'variable',
-        format: ['camelCase', 'UPPER_CASE']
+        format: ['camelCase', 'UPPER_CASE'],
       },
       {
         selector: ['parameter', 'classProperty'],
         format: ['camelCase'],
-        leadingUnderscore: 'allow'
+        leadingUnderscore: 'allow',
       },
       {
         selector: 'typeLike',
-        format: ['PascalCase']
+        format: ['PascalCase'],
       },
       {
         selector: 'typeProperty',
-        format: null
+        format: null,
       },
       {
         selector: [
@@ -51,32 +54,32 @@ module.exports = {
           'classMethod',
           'objectLiteralMethod',
           'typeMethod',
-          'accessor'
+          'accessor',
         ],
         format: null,
-        modifiers: ['requiresQuotes']
+        modifiers: ['requiresQuotes'],
       },
       {
         selector: ['objectLiteralProperty', 'enumMember'],
-        format: null
-      }
+        format: null,
+      },
     ],
     '@typescript-eslint/explicit-function-return-type': [
-      'error',
-      {allowExpressions: true}
+      'off',
+      {allowExpressions: true},
     ],
-    'arrow-parens': ['error', 'as-needed']
+    'arrow-parens': ['error', 'as-needed'],
   },
   settings: {
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx']
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     'import/resolver': {
       typescript: {
         alwaysTryTypes: true,
-        project: './tsconfig.json'
-      }
-    }
+        project: './tsconfig.json',
+      },
+    },
   },
-  root: true
+  root: true,
 };

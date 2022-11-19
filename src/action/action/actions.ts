@@ -1,3 +1,3 @@
 import {ActionsBuffer} from '@Root';
 
-export const Actions = new ActionsBuffer();
+export const ACTIONS = new ActionsBuffer();

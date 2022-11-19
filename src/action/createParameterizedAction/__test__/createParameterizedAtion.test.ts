@@ -1,4 +1,4 @@
-import {Actions, createAction, createParametarizedAction} from '@Root';
+import {ACTIONS, createAction, createParametarizedAction} from '@Root';
 import type {MessageContext} from 'vk-io';
 
 const TEST_ACTION_NAME = 'test action name';
@@ -28,17 +28,17 @@ describe('Create Parameterized Action', () => {
   );
   const actionPayload = testAction(actionProps);
 
-  test('Action constructor should have correct props', async () => {
+  test('Action constructor should have correct props', () => {
     expect(actionPayload.actionName).toBe('test action name');
     expect(actionPayload.params).toMatchObject(actionProps);
   });
 
   test('Action should be in ActionsBuffer', () => {
-    expect(Actions.isAlreadyExists(TEST_ACTION_NAME)).toBeTruthy();
+    expect(ACTIONS.isAlreadyExists(TEST_ACTION_NAME)).toBeTruthy();
   });
 
   test('Action executor should have correct props', async () => {
-    const actionExecutor = Actions.find(TEST_ACTION_NAME);
+    const actionExecutor = ACTIONS.find(TEST_ACTION_NAME);
 
     if (!actionExecutor) {
       throw new Error(`There is no "${TEST_ACTION_NAME}" action`);

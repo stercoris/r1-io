@@ -1,5 +1,5 @@
 import type {SimpleAction} from '@Root';
-import {Actions} from '@Root';
+import {ACTIONS} from '@Root';
 import type {MessageContext} from 'vk-io';
 import {createAction} from '../createAction';
 
@@ -19,16 +19,16 @@ describe('Create Simple Action', () => {
 
   const actionPayload = testAction();
 
-  test('Action constructor should have correct props', async () => {
+  test('Action constructor should have correct props', () => {
     expect(actionPayload.actionName).toBe('test action name');
   });
 
   test('Action should be in ActionsBuffer', () => {
-    expect(Actions.isAlreadyExists(TEST_ACTION_NAME)).toBeTruthy();
+    expect(ACTIONS.isAlreadyExists(TEST_ACTION_NAME)).toBeTruthy();
   });
 
   test('Action executor should have correct props', async () => {
-    const actionExecutor = Actions.find(TEST_ACTION_NAME);
+    const actionExecutor = ACTIONS.find(TEST_ACTION_NAME);
 
     if (!actionExecutor) {
       throw new Error(`There is no "${TEST_ACTION_NAME}" action`);

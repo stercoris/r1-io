@@ -1,5 +1,5 @@
 import type {ParameterizedAction} from '@Action/index';
-import {Actions} from '@Action/index';
+import {ACTIONS} from '@Action/index';
 
 export interface ParameterizedActionPayload<T extends Object>
   extends JSX.ActionPayload {
@@ -23,11 +23,11 @@ export const createParametarizedAction: ParameterizedActionCreator = (
   name,
   action
 ) => {
-  if (Actions.isAlreadyExists(name)) {
+  if (ACTIONS.isAlreadyExists(name)) {
     throw new Error(`Action with name "${name}" already exist`);
   }
 
-  Actions.add({do: action, actionName: name, type: 'ParameterizedAction'});
+  ACTIONS.add({do: action, actionName: name, type: 'ParameterizedAction'});
 
   return params => ({actionName: name, params});
 };

@@ -11,9 +11,7 @@ export const buildFromJSXToVKKeyboard =
 
     const resolvedJSX = await promiseDeepResolve(unresolvedNode);
 
-    // TODO:pls add typization
     const jsxWithoutFunctional = deleteFunctionalComponents(
-      // @ts-ignore
       resolvedJSX
     ) as unknown as Menu;
 
