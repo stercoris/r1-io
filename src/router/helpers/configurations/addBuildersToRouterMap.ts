@@ -1,6 +1,10 @@
-import type {Router, RouterBuilder} from '@Router/IRouter';
+import type {BaseRouter, Router} from '@Router/IRouter';
 import {buildFromJSXToVKKeyboard} from './buildFromJSXToVKKeyboard';
 import 'vk-io';
+
+interface RouterBuilder<C> extends BaseRouter {
+  build: R1IO.FC<C>;
+}
 
 const configureBuilder = <C extends Record<string, unknown>, E extends string>([
   name,

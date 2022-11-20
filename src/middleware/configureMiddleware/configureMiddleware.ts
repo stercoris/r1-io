@@ -1,7 +1,7 @@
 import type {ActionsBuffer} from '@ActionBuffer/actionsBuffer';
 import {asyncAttachToContext} from '@Middleware/contextExtensions/paramsMiddleware';
 import {customSend} from '@Middleware/contextExtensions/send/send';
-import type {IMiddleware} from '@Middleware/IMiddleware';
+import type {Middleware} from '@Middleware/Middleware';
 import type {BaseRouter, IRouter} from '@Router/IRouter';
 
 interface MiddlewareConfiguratorProps<
@@ -9,7 +9,7 @@ interface MiddlewareConfiguratorProps<
   OutputContext extends JSXComponentProps = JSXComponentProps
 > {
   getCurrentMenu: IRouter<JSXComponentProps>;
-  applyUserMiddleware: IMiddleware<OutputContext>;
+  applyUserMiddleware: Middleware<OutputContext>;
   actions: ActionsBuffer<any>;
 }
 
@@ -18,7 +18,7 @@ type MiddlewareConfigurator = <
   OutputContext extends JSXComponentProps = JSXComponentProps
 >(
   p: MiddlewareConfiguratorProps<JSXComponentProps, OutputContext>
-) => IMiddleware<OutputContext>;
+) => Middleware<OutputContext>;
 
 export const createMiddlewareConfigurator: MiddlewareConfigurator =
   ({getCurrentMenu, applyUserMiddleware, actions}) =>

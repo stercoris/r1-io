@@ -1,4 +1,4 @@
-export type FunctionalParser = (
+type FunctionalParser = (
   func: Function | string,
   props: Object,
   ...children: unknown[]

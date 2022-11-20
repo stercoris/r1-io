@@ -1,21 +1,26 @@
-import type {IAction} from '@Action/iAction';
+import type {InternalActionType} from '@Action/ActionType';
 import type {ContextBundle} from '@Middleware/IContextBundle';
 
 type ActionResponse = 'ActionNotFound' | 'ActionExecuted' | 'PayloadNotFound';
 
 export class ActionsBuffer<InternalContext extends {}> {
-  constructor(private actions: IAction<InternalContext, any>[] = []) {}
+  constructor(
+    private actions: InternalActionType<InternalContext, any>[] = []
+  ) {}
 
-  find(actionName: string): undefined | IAction<InternalContext, any> {
+  find(
+    actionName: string
+  ): undefined | InternalActionType<InternalContext, any> {
     return this.actions.find(a => a.actionName === actionName);
   }
 
   async findAndCall(
     payload: JSX.ActionPayload,
-    {context, builderContext}: ContextBundle<InternalContext>
+    contextBundle: ContextBundle<InternalContext>
   ): Promise<ActionResponse> {
     if (!payload) return 'PayloadNotFound';
 
+    const {builderContext, context} = contextBundle;
     const {actionName, params} = payload;
 
     const action = this.actions.find(a => a.actionName === actionName);
@@ -37,15 +42,18 @@ export class ActionsBuffer<InternalContext extends {}> {
     await Promise.all(actions.map(a => this.findAndCall(a, contextBundle)));
   }
 
-  add(action: IAction<any, any>): void {
+  add(action: InternalActionType<any, any>): void {
+    if (this.isAlreadyExists(action.actionName)) {
+      throw new Error(`Action with name "${action.actionName}" already exist`);
+    }
     this.actions.push(action);
   }
 
   isAlreadyExists(name: string): boolean {
-    return !!this.actions.find(a => a.actionName === name);
+    return this.actions.some(a => a.actionName === name);
   }
 
-  getAll(): IAction<InternalContext, any>[] {
+  getAll(): InternalActionType<InternalContext, any>[] {
     return this.actions;
   }
 }

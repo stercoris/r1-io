@@ -1,4 +1,4 @@
-import type {SimpleAction} from '@Root';
+import type {SimpleActionType} from '@Root';
 import {ACTIONS} from '@Root';
 import type {MessageContext} from 'vk-io';
 import {createAction} from '../createAction';
@@ -39,7 +39,7 @@ describe('Create Simple Action', () => {
 
     expect(typeof actionExecutor.do === typeof Function).toBe(true);
 
-    await (actionExecutor.do as SimpleAction<any>)(
+    await (actionExecutor.do as SimpleActionType<any>)(
       {test: 1} as unknown as MessageContext,
       {test: 2}
     );
