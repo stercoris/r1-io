@@ -22,8 +22,8 @@ export const buttonToVkIoButtonConverter = ({
 
   const textButtonProps: IKeyboardTextButtonOptions = {
     label: labelOrChild,
-    color: props.color,
-    payload: props.onClick,
+    color: props?.color || 'secondary',
+    payload: props?.onClick,
   };
 
   return Keyboard.textButton(textButtonProps);
