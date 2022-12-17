@@ -3,6 +3,16 @@
   "version": "1.0.16",
   "description": "Simple jsx based library for creation of vk bots, based on vk-io",
   "main": "dist/index.js",
+  "watch": {
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "ts, tsx",
+      "legacyWatch": true,
+      "runOnChangeOnly": false
+    }
+  },
   "scripts": {
     "lint": "yarn eslint ./",
     "types": "yarn tsc --project ./tsconfig.json --noEmit",
@@ -12,7 +22,8 @@
     "build:transpile": "tsc --project tsconfig.build.json",
     "build:replacePaths": "tsc-alias -p tsconfig.json",
     "build": "yarn build:clean && yarn build:transpile && yarn build:replacePaths",
-    "prepare": "husky install & yarn build"
+    "prepare": "husky install & yarn build",
+    "watch": "npm-watch build"
   },
   "author": "Dmitriy Rodin",
   "license": "GPL-3.0-or-later",
@@ -36,6 +47,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^7.0.4",
     "jest": "^27.4.4",
+    "npm-watch": "^0.11.0",
     "prettier": "^2.7.1",
     "ts-node": "^10.4.0",
     "tsc-alias": "^1.7.1",
